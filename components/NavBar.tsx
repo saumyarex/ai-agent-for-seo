@@ -63,7 +63,12 @@ function NavBar() {
               }}
               transition={{ type: "spring", stiffness: 200, damping: 18 }}
             >
-              <Image src={logoLink} width={35} height={35} alt="Ryze Logo" />
+              <Image
+                src={"/main-logo-sun-2.png"}
+                width={35}
+                height={35}
+                alt="Ryze Logo"
+              />
             </motion.div>
             <motion.span
               className="text-lg font-semibold sm:text-2xl"
