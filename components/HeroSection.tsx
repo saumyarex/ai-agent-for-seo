@@ -79,7 +79,7 @@ function HeroSection() {
           mass: 0.7,
           delay: 0.28,
         }}
-        className="absolute -bottom-45 left-1/2 z-20 w-full max-w-[1160px] -translate-x-1/2 translate-y-[40%] px-4 sm:-bottom-36 sm:translate-y-[42%] sm:px-6 md:-bottom-30 lg:translate-y-[46%]"
+        className="mt-0"
       >
         <RyzeAgentHero />
       </motion.div>
