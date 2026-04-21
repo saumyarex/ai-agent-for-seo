@@ -1,27 +1,25 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { ArrowRight, Play, Sparkles } from "lucide-react";
 import { motion } from "motion/react";
-import HeroProduct from "@/components/HeroProduct";
+import RyzeAgentHero from "./RyzeAgentHero";
 
 function HeroSection() {
   return (
     <section
-      className="relative min-h-screen overflow-hidden bg-[#f7f7f3] bg-cover bg-center bg-no-repeat text-neutral-950"
+      className="relative mb-[22rem] min-h-screen overflow-visible bg-[#f7f7f3] bg-cover bg-center bg-no-repeat text-neutral-950 sm:mb-[26rem] lg:mb-[30rem]"
       style={{ backgroundImage: "url('/hero5.webp')" }}
     >
       <div className="absolute inset-0 bg-white/5" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.04)_0%,rgba(255,255,255,0.1)_24%,rgba(255,255,255,0.26)_54%,rgba(255,255,255,0.52)_78%,rgba(255,255,255,0.72)_100%)]" />
 
-      <div className="relative z-10 flex min-h-[calc(100vh-7rem)] flex-col px-5 pt-20 pb-10 sm:px-8 md:px-10 lg:px-14 lg:pt-24">
+      <div className="relative z-10 flex min-h-[calc(100vh-7rem)] flex-col px-5 pt-20 pb-12 sm:px-8 md:px-10 lg:px-14 lg:pt-24">
         <div className="mx-auto flex w-full max-w-[1120px] flex-1 flex-col items-center text-center">
           <motion.div
             initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ type: "spring", stiffness: 120, damping: 20 }}
-            //transition={{ duration: 0.5, ease: "easeInOut" }}
             className="max-w-4xl"
           >
             <div className="inline-flex items-center gap-2 rounded-full border border-black/10 bg-white/70 px-4 py-2 text-sm font-medium text-[#1f2937] backdrop-blur-md">
@@ -68,23 +66,23 @@ function HeroSection() {
               </motion.a>
             </div>
           </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 40, scale: 0.97 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            transition={{
-              type: "spring",
-              stiffness: 150,
-              damping: 20,
-              mass: 0.5,
-              delay: 0.12,
-            }}
-            className="relative mt-14 w-full max-w-[1160px]"
-          >
-            {/* <HeroProduct /> */}
-          </motion.div>
         </div>
       </div>
+
+      <motion.div
+        initial={{ opacity: 0, y: 72, scale: 0.96 }}
+        animate={{ opacity: 1, y: 0, scale: 1 }}
+        transition={{
+          type: "spring",
+          stiffness: 110,
+          damping: 18,
+          mass: 0.7,
+          delay: 0.28,
+        }}
+        className="absolute -bottom-10 left-1/2 z-20 w-full max-w-[1160px] -translate-x-1/2 translate-y-[40%] px-4 sm:translate-y-[42%] sm:px-6 lg:translate-y-[46%]"
+      >
+        <RyzeAgentHero />
+      </motion.div>
     </section>
   );
 }
