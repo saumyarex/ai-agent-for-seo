@@ -10,7 +10,7 @@ function HeroSection() {
   return (
     <section
       className="relative min-h-screen overflow-hidden bg-[#f7f7f3] bg-cover bg-center bg-no-repeat text-neutral-950"
-      style={{ backgroundImage: "url('/hero5.png')" }}
+      style={{ backgroundImage: "url('/hero5.webp')" }}
     >
       <div className="absolute inset-0 bg-white/5" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.04)_0%,rgba(255,255,255,0.1)_24%,rgba(255,255,255,0.26)_54%,rgba(255,255,255,0.52)_78%,rgba(255,255,255,0.72)_100%)]" />
