@@ -394,7 +394,7 @@ export default function RyzeAgentHero() {
       >
         <div
           className="glass-panel"
-          style={{ width: "100%", maxWidth: 920, overflow: "hidden" }}
+          style={{ width: "100%", maxWidth: 920, overflow: "auto", aspectRatio: "16 / 9" }}
         >
           <div className="ambient-sweep" />
 
@@ -455,7 +455,7 @@ export default function RyzeAgentHero() {
           </div>
 
           {/* — Sidebar + Main — */}
-          <div style={{ display: "flex", height: 560 }}>
+          <div style={{ display: "flex", height: "100%" }}>
             {/* SIDEBAR */}
             <div
               style={{

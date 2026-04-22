@@ -8,14 +8,20 @@ import RyzeAgentHero from "./RyzeAgentHero";
 function HeroSection() {
   return (
     <section
-      className="relative mb-[22rem] min-h-screen overflow-visible bg-[#f7f7f3] bg-cover bg-center bg-no-repeat text-neutral-950 sm:mb-[26rem] lg:mb-[30rem]"
-      style={{ backgroundImage: "url('/hero5.webp')" }}
+      className="min-h-screen bg-[#f7f7f3] bg-cover bg-center bg-no-repeat text-neutral-950"
+      // style={{ backgroundImage: "url('/hero5.webp')" }}
     >
-      <div className="absolute inset-0 bg-white/5" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.04)_0%,rgba(255,255,255,0.1)_24%,rgba(255,255,255,0.26)_54%,rgba(255,255,255,0.52)_78%,rgba(255,255,255,0.72)_100%)]" />
+      {/* Main content container with background */}
+      <div
+        className="relative z-10 flex min-h-[calc(100vh-7rem)] w-full flex-col bg-cover bg-center bg-no-repeat px-5 pt-20 sm:px-8 md:px-10 lg:px-14 lg:pt-24"
+        style={{ backgroundImage: "url('/hero5.webp')" }}
+      >
+        {/* white background overlay to create focus */}
+        <div className="absolute inset-0 bg-white/10" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.04)_0%,rgba(255,255,255,0.1)_24%,rgba(255,255,255,0.16)_54%,rgba(255,255,255,0.22)_78%,rgba(255,255,255,0.32)_100%)]" />
 
-      <div className="relative z-10 flex min-h-[calc(100vh-7rem)] flex-col px-5 pt-20 pb-12 sm:px-8 md:px-10 lg:px-14 lg:pt-24">
-        <div className="mx-auto flex w-full max-w-[1120px] flex-1 flex-col items-center text-center">
+        {/* main content */}
+        <div className="mx-auto flex w-full max-w-280 flex-col items-center text-center">
           <motion.div
             initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
@@ -27,7 +33,7 @@ function HeroSection() {
               Ryze AI for modern SEO teams
             </div>
 
-            <h1 className="font-pixelify mx-auto mt-8 text-2xl font-medium text-neutral-950 sm:text-3xl md:max-w-7xl md:text-6xl">
+            <h1 className="font-pixelify mx-auto mt-8 w-full text-2xl font-medium text-neutral-950 sm:text-3xl md:max-w-7xl md:text-6xl 2xl:text-8xl">
               What if your SEO just… handled itself?
             </h1>
 
@@ -66,23 +72,24 @@ function HeroSection() {
               </motion.a>
             </div>
           </motion.div>
+
+          {/* Ryze agent hero interface */}
+          <motion.div
+            initial={{ opacity: 0, y: 72, scale: 0.96 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{
+              type: "spring",
+              stiffness: 110,
+              damping: 18,
+              mass: 0.7,
+              delay: 0.28,
+            }}
+            className="mt-6 w-full sm:mt-8 lg:mt-12"
+          >
+            <RyzeAgentHero />
+          </motion.div>
         </div>
       </div>
-
-      <motion.div
-        initial={{ opacity: 0, y: 72, scale: 0.96 }}
-        animate={{ opacity: 1, y: 0, scale: 1 }}
-        transition={{
-          type: "spring",
-          stiffness: 110,
-          damping: 18,
-          mass: 0.7,
-          delay: 0.28,
-        }}
-        className="mt-0"
-      >
-        <RyzeAgentHero />
-      </motion.div>
     </section>
   );
 }
