@@ -1,19 +1,16 @@
 "use client";
 
-import Link from "next/link";
 import { ArrowRight, Play, Sparkles } from "lucide-react";
 import { motion } from "motion/react";
 import RyzeAgentHero from "./RyzeAgentHero";
+import Button from "./Button";
 
 function HeroSection() {
   return (
-    <section
-      className="min-h-screen bg-[#f7f7f3] bg-cover bg-center bg-no-repeat text-neutral-950"
-      // style={{ backgroundImage: "url('/hero5.webp')" }}
-    >
+    <section className="min-h-screen bg-[#f7f7f3] bg-cover bg-center bg-no-repeat text-neutral-950">
       {/* Main content container with background */}
       <div
-        className="relative z-10 flex min-h-[calc(100vh-7rem)] w-full flex-col bg-cover bg-center bg-no-repeat px-5 pt-20 sm:px-8 md:px-10 lg:px-14 lg:pt-24"
+        className="relative z-10 flex min-h-screen w-full flex-col bg-cover bg-center bg-no-repeat px-5 pt-20 sm:px-8 md:px-10 lg:px-14 lg:pt-24"
         style={{ backgroundImage: "url('/hero5.webp')" }}
       >
         {/* white background overlay to create focus */}
@@ -29,48 +26,39 @@ function HeroSection() {
             className="max-w-4xl"
           >
             <div className="inline-flex items-center gap-2 rounded-full border border-black/10 bg-white/70 px-4 py-2 text-sm font-medium text-[#1f2937] backdrop-blur-md">
-              <Sparkles className="h-4 w-4 text-[#003d38]" />
-              Ryze AI for modern SEO teams
+              <Sparkles className="h-4 w-4 text-[#D97706]" />
+              Autonomous SEO — built for modern search.
             </div>
 
             <h1 className="font-pixelify mx-auto mt-8 w-full text-2xl font-medium text-neutral-950 sm:text-3xl md:max-w-7xl md:text-6xl 2xl:text-8xl">
-              What if your SEO just… handled itself?
+              Stop Doing SEO. Let It Run Itself.
             </h1>
 
             <p className="mx-auto mt-2 max-w-lg text-sm leading-6 tracking-tight text-black/72 sm:mt-4 sm:text-lg sm:leading-7 md:max-w-xl">
-              One AI agent that finds ranking opportunities, builds content
-              plans, flags technical blockers, and gives your team the clearest
-              next step to win more qualified traffic.
+              An AI system that finds opportunities, creates content, fixes
+              technical issues, and gets you cited in AI search — automatically.
+              No dashboards. No busywork. Just growth.
             </p>
 
             <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-              <motion.a
-                href="#generator"
-                className="group relative inline-flex h-10 items-center gap-0.5 overflow-hidden rounded-lg bg-neutral-950 px-4 text-sm font-medium text-white transition sm:px-5"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-              >
-                <span className="pointer-events-none absolute inset-y-1 -left-10 w-10 rounded-full bg-white/40 opacity-0 blur-md transition-all duration-500 ease-out group-hover:left-[calc(100%+0.5rem)] group-hover:opacity-100" />
-                <span className="pointer-events-none absolute inset-0 bg-[linear-gradient(120deg,transparent_0%,rgba(255,255,255,0.02)_38%,rgba(255,255,255,0.09)_50%,rgba(255,255,255,0.02)_62%,transparent_100%)] opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-                <span className="relative z-10">Start with Ryze</span>
-                <ArrowRight
-                  size={16}
-                  className="relative z-10 transition-all duration-200 group-hover:translate-x-0.5"
-                />
-              </motion.a>
-              <motion.a
-                href="#generator"
-                className="inline-flex h-10 items-center justify-center gap-2 rounded-md border border-black/10 bg-white/72 px-4 text-base font-medium text-[#141414] backdrop-blur-md transition-colors duration-200 hover:bg-white"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-              >
-                <Play
-                  size={16}
-                  className="relative z-10 fill-current transition-all duration-200 group-hover:translate-x-0.5"
-                />
-                <span className="relative z-10">Watch demo</span>
-              </motion.a>
+              <Button
+                title="Get Early Access"
+                rightIcon={ArrowRight}
+                isLink
+                href="#early-access"
+                variant="primary"
+              />
+              <Button
+                title="Watch demo"
+                leftIcon={Play}
+                isLink
+                href="#demo"
+                variant="secondary"
+              />
             </div>
+            <p className="mt-3 text-xs text-black/55">
+              Limited spots for early users.
+            </p>
           </motion.div>
 
           {/* Ryze agent hero interface */}
