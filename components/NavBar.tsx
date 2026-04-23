@@ -82,7 +82,7 @@ function NavBar() {
           </motion.a>
 
           <motion.nav
-            className="hidden items-center gap-6 text-sm font-medium text-neutral-700 md:flex"
+            className="hidden items-center gap-4 text-sm font-medium text-neutral-700 lg:flex lg:gap-6"
             animate={{
               scale: isScrolled ? 0.9 : 1,
               opacity: isScrolled ? 0.9 : 1,
@@ -93,7 +93,7 @@ function NavBar() {
               <a
                 key={link.href}
                 href={link.href}
-                className="text-base font-medium tracking-wider transition duration-200 hover:-translate-y-0.5 hover:text-neutral-950"
+                className="text-sm font-medium tracking-wider transition duration-200 hover:-translate-y-0.5 hover:text-neutral-950 active:translate-y-0 focus:translate-y-0 lg:text-base"
               >
                 {link.label}
               </a>
@@ -107,7 +107,7 @@ function NavBar() {
           >
             <motion.a
               href="#generator"
-              className="group relative hidden h-10 items-center gap-0.5 overflow-hidden rounded-lg bg-neutral-950 px-4 text-sm font-medium text-white transition sm:px-5 md:inline-flex"
+              className="group relative hidden h-10 items-center gap-0.5 overflow-hidden rounded-lg bg-neutral-950 px-4 text-sm font-medium text-white transition sm:px-5 lg:inline-flex"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
@@ -122,7 +122,7 @@ function NavBar() {
           </motion.div>
 
           <button
-            className="flex items-center justify-center p-2 text-neutral-700 md:hidden"
+            className="flex items-center justify-center p-2 text-neutral-700 lg:hidden"
             onClick={() => setIsMobileMenuOpen(true)}
             aria-label="Open menu"
           >
