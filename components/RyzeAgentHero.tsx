@@ -143,10 +143,6 @@ export default function RyzeAgentHero() {
                     src="/main-logo-sun-2.png"
                     alt="Ryze"
                     className="h-14 w-14 object-contain"
-                    style={{
-                      filter:
-                        "brightness(0) saturate(100%) invert(48%) sepia(76%) saturate(2094%) hue-rotate(13deg) brightness(94%) contrast(94%)",
-                    }}
                   />
                   <div className="text-center">
                     <h3 className="text-[28px] leading-tight font-semibold tracking-tight text-slate-900">
