@@ -32,7 +32,7 @@ function SocialProofSection() {
 
         <Reveal delay={0.2}>
           <p className="mt-8 text-base leading-7 text-black/65">
-            Join early users testing a new way to grow traffic —
+            Join teams already growing traffic a new way —
             <br className="hidden sm:block" />
             without the dashboards, the audits, or the weekend work.
           </p>

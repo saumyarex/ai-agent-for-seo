@@ -26,12 +26,13 @@ function HeroSection() {
             className="max-w-4xl"
           >
             <div className="inline-flex items-center gap-2 rounded-full border border-black/10 bg-white/70 px-4 py-2 text-sm font-medium text-[#1f2937] backdrop-blur-md">
-              <Sparkles className="h-4 w-4 text-[#D97706]" />
+              <Sparkles className="h-4 w-4 text-brand" />
               Autonomous SEO — built for modern search.
             </div>
 
             <h1 className="font-pixelify mx-auto mt-8 w-full text-2xl font-medium text-neutral-950 sm:text-3xl md:max-w-7xl md:text-6xl 2xl:text-8xl">
-              Stop Doing SEO. Let It Run Itself.
+              <span className="block font-semibold"> Stop Doing SEO</span>
+              <span className="block">Let It Run Itself</span>
             </h1>
 
             <p className="mx-auto mt-2 max-w-lg text-sm leading-6 tracking-tight text-black/72 sm:mt-4 sm:text-lg sm:leading-7 md:max-w-xl">
@@ -42,10 +43,10 @@ function HeroSection() {
 
             <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
               <Button
-                title="Get Early Access"
+                title="Start with Ryze"
                 rightIcon={ArrowRight}
                 isLink
-                href="#early-access"
+                href="#start"
                 variant="primary"
               />
               <Button
@@ -57,7 +58,7 @@ function HeroSection() {
               />
             </div>
             <p className="mt-3 text-xs text-black/55">
-              Limited spots for early users.
+              Live now. Join teams already running SEO on autopilot.
             </p>
           </motion.div>
 
