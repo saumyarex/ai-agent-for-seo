@@ -75,7 +75,7 @@ function Footer() {
                   target="_blank"
                   rel="noreferrer"
                   aria-label={label}
-                  className="flex h-9 w-9 items-center justify-center rounded-lg border border-black/6 bg-white text-black/60 transition-colors duration-200 hover:border-[#D97706]/30 hover:text-[#D97706]"
+                  className="flex h-9 w-9 items-center justify-center rounded-lg border border-black/6 bg-white text-black/60 transition-colors duration-200 hover:border-brand/30 hover:text-brand"
                 >
                   <Icon />
                 </a>
@@ -147,7 +147,7 @@ function Footer() {
             audit.
           </p>
           <p className="flex items-center gap-1.5">
-            <span className="inline-block h-1.5 w-1.5 rounded-full bg-[#D97706]" />
+            <span className="inline-block h-1.5 w-1.5 rounded-full bg-brand" />
             <span>All systems running</span>
           </p>
         </div>

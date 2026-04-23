@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Pixelify_Sans } from "next/font/google";
+import { Inter, Pixelify_Sans } from "next/font/google";
 import "./globals.css";
 import NavBar from "@/components/NavBar";
 import { Analytics } from "@vercel/analytics/next";
@@ -10,13 +10,8 @@ const pixelifySans = Pixelify_Sans({
   weight: "400",
 });
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
 });
 
@@ -75,7 +70,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} ${pixelifySans.variable} h-full antialiased`}
+      className={`${inter.variable} ${pixelifySans.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col">
         <NavBar />
