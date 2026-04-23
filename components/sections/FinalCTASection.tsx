@@ -16,7 +16,13 @@ type Metric = {
 
 const metrics: Metric[] = [
   { label: "Avg. ROAS", value: 5.6, suffix: "x", decimals: 1 },
-  { label: "Revenue driven", value: 4.2, prefix: "$", suffix: "M", decimals: 1 },
+  {
+    label: "Revenue driven",
+    value: 4.2,
+    prefix: "$",
+    suffix: "M",
+    decimals: 1,
+  },
   { label: "Organic visits", value: 23.5, suffix: "M", decimals: 1 },
   { label: "Keywords on page 1", value: 48, suffix: "k+" },
   { label: "Conversion lift", value: 32, prefix: "+", suffix: "%" },
@@ -73,7 +79,7 @@ function LiveResultsStrip() {
             transition={{ duration: 0.35, delay: i * 0.06 }}
             className="flex flex-col items-center text-center"
           >
-            <div className="font-pixelify text-2xl font-bold tabular-nums text-neutral-950 sm:text-3xl">
+            <div className="font-pixelify text-2xl font-medium text-neutral-950 tabular-nums sm:text-3xl">
               {m.prefix}
               <AnimatedNumber
                 target={m.value}
@@ -89,7 +95,7 @@ function LiveResultsStrip() {
         ))}
       </div>
 
-      <div className="mt-5 flex items-center justify-center gap-2 font-pixelify text-[11px] text-emerald-700">
+      <div className="font-pixelify mt-5 flex items-center justify-center gap-2 text-[11px] text-emerald-700">
         <span className="inline-block h-1.5 w-1.5 bg-emerald-400" />
         All systems ok
       </div>
