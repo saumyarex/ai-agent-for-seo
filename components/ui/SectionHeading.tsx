@@ -44,13 +44,13 @@ function SectionHeading({
       )}
       <Reveal delay={0.05}>
         <h2
-          className={`font-pixelify mt-5 text-3xl leading-tight font-medium sm:text-4xl md:text-5xl ${titleClass}`}
+          className={`font-pixelify mt-5 text-3xl leading-tight tracking-tight sm:text-4xl md:text-5xl ${titleClass}`}
         >
           {title}
           {titleHighlight && (
             <>
               <br />
-              <span className={highlightClass}>{titleHighlight}</span>
+              <span className={`${highlightClass}`}>{titleHighlight}</span>
             </>
           )}
         </h2>
