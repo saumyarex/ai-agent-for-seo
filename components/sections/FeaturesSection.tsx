@@ -4,7 +4,6 @@ import React from "react";
 import { motion, useReducedMotion } from "motion/react";
 import Section from "../ui/Section";
 import SectionHeading from "../ui/SectionHeading";
-import Reveal from "../ui/Reveal";
 
 type Feature = {
   title: string;
@@ -38,7 +37,11 @@ function MiniVisual({ kind }: { kind: Feature["visual"] }) {
   const common = "absolute inset-0 w-full h-full";
 
   if (kind === "nextActions") {
-    const items = ["Ship /pricing rewrite", "Cluster 8 new queries", "Fix 3 broken links"];
+    const items = [
+      "Ship /pricing rewrite",
+      "Cluster 8 new queries",
+      "Fix 3 broken links",
+    ];
     return (
       <div className={`${common} flex flex-col justify-center gap-1.5 p-3`}>
         {items.map((label, i) => (
@@ -68,7 +71,9 @@ function MiniVisual({ kind }: { kind: Feature["visual"] }) {
                 </svg>
               ) : null}
             </span>
-            <span className="text-[10px] font-medium text-black/70">{label}</span>
+            <span className="text-[10px] font-medium text-black/70">
+              {label}
+            </span>
           </motion.div>
         ))}
       </div>
@@ -88,11 +93,11 @@ function MiniVisual({ kind }: { kind: Feature["visual"] }) {
             whileInView={{ width: "55%" }}
             transition={{ duration: 0.9, ease: "easeOut" }}
             viewport={{ once: true }}
-            className="absolute bottom-[-3px] left-0 h-[2px] rounded-full bg-brand"
+            className="bg-brand absolute bottom-[-3px] left-0 h-[2px] rounded-full"
           />
         </div>
         <div className="mt-1 flex items-center gap-1.5">
-          <span className="rounded-sm bg-brand/15 px-1.5 py-0.5 font-pixelify text-[9px] tracking-wider text-brand">
+          <span className="bg-brand/15 font-pixelify text-brand rounded-sm px-1.5 py-0.5 text-[9px] tracking-wider">
             CITED
           </span>
           <span className="text-[10px] text-black/50">by perplexity</span>
@@ -119,11 +124,15 @@ function MiniVisual({ kind }: { kind: Feature["visual"] }) {
               <motion.span
                 initial={{ scale: 0 }}
                 whileInView={{ scale: 1 }}
-                transition={{ delay: 0.25 + i * 0.1, type: "spring", stiffness: 300 }}
+                transition={{
+                  delay: 0.25 + i * 0.1,
+                  type: "spring",
+                  stiffness: 300,
+                }}
                 viewport={{ once: true }}
-                className="flex h-4 items-center gap-1 rounded-full bg-brand/15 px-1.5 font-pixelify text-[9px] font-bold tracking-wider text-brand"
+                className="bg-brand/15 font-pixelify text-brand flex h-4 items-center gap-1 rounded-full px-1.5 text-[9px] font-bold tracking-wider"
               >
-                <span className="h-1 w-1 rounded-full bg-brand" />
+                <span className="bg-brand h-1 w-1 rounded-full" />
                 LIVE
               </motion.span>
             ) : (
@@ -144,54 +153,54 @@ function MiniVisual({ kind }: { kind: Feature["visual"] }) {
   return null;
 }
 
-function FeaturesSection() {
-  const reduce = useReducedMotion();
+function FeatureCard({ feature, index }: { feature: Feature; index: number }) {
   return (
-    <Section id="features" className="relative overflow-hidden bg-[#F8F8F5]">
+    <div className="h-full">
+      <div className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-transparent p-5">
+        <div className="flex-1">
+          <div className="flex items-center gap-2">
+            <span className="font-pixelify text-brand/70 text-[11px] tracking-widest">
+              0{index + 1}
+            </span>
+            <span className="from-brand/20 h-px flex-1 bg-gradient-to-r to-transparent" />
+          </div>
+          <p className="mt-3 text-[17px] leading-6 font-semibold text-black/90">
+            {feature.title}
+          </p>
+          <p className="mt-2 text-sm leading-6 text-black/55">
+            {feature.description}
+          </p>
+        </div>
+        <div className="relative mt-5 h-20 shrink-0 overflow-hidden rounded-xl bg-black/[0.02] ring-1 ring-black/5">
+          <MiniVisual kind={feature.visual} />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function FeaturesSection() {
+  return (
+    <Section
+      id="features"
+      className="relative overflow-hidden bg-[#FEFEF5] py-16! sm:py-20!"
+    >
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0 -z-10 [background-image:radial-gradient(rgba(0,0,0,0.04)_1px,transparent_1px)] [background-size:22px_22px] [mask-image:radial-gradient(ellipse_at_center,black_40%,transparent_75%)]"
+        className="pointer-events-none absolute inset-0 -z-10 [background-image:radial-gradient(rgba(0,0,0,0.04)_1px,transparent_1px)] [mask-image:radial-gradient(ellipse_at_center,black_40%,transparent_75%)] [background-size:22px_22px]"
       />
 
       <div className="relative mx-auto max-w-5xl">
         <SectionHeading
-          eyebrow="What it does"
           title="Outcomes,"
           titleHighlight="not dashboards."
           description="Every feature replaces hours of manual work with a clear result."
+          align="left"
         />
 
-        <div className="mt-14 grid gap-5 md:grid-cols-3">
+        <div className="relative mt-10 grid grid-cols-1 *:border-b *:border-black/5 md:grid-cols-3 [&>*:last-child]:border-b-0 md:[&>*:not(:nth-child(3n))]:border-r md:[&>*:not(:nth-child(3n))]:border-black/5 md:[&>*:nth-last-child(-n+3)]:border-b-0">
           {features.map((feature, i) => (
-            <Reveal key={feature.title} delay={i * 0.08} className="h-full">
-              <motion.div
-                whileHover={reduce ? undefined : { y: -4 }}
-                transition={{ type: "spring", stiffness: 260, damping: 22 }}
-                className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-black/5 bg-white/70 p-5 shadow-[0_1px_0_rgba(0,0,0,0.03),0_10px_30px_-12px_rgba(0,0,0,0.08)] backdrop-blur-sm transition-colors hover:border-brand/20"
-              >
-                <div
-                  aria-hidden
-                  className="pointer-events-none absolute -top-16 -right-16 h-44 w-44 rounded-full bg-brand/10 blur-3xl opacity-0 transition-opacity duration-500 group-hover:opacity-100"
-                />
-                <div className="flex-1">
-                  <div className="flex items-center gap-2">
-                    <span className="font-pixelify text-[11px] tracking-widest text-brand/70">
-                      0{i + 1}
-                    </span>
-                    <span className="h-px flex-1 bg-gradient-to-r from-brand/20 to-transparent" />
-                  </div>
-                  <p className="mt-3 text-[17px] leading-6 font-semibold text-black/90">
-                    {feature.title}
-                  </p>
-                  <p className="mt-2 text-sm leading-6 text-black/55">
-                    {feature.description}
-                  </p>
-                </div>
-                <div className="relative mt-5 h-24 shrink-0 overflow-hidden rounded-xl bg-[#F8F8F5] ring-1 ring-black/5">
-                  <MiniVisual kind={feature.visual} />
-                </div>
-              </motion.div>
-            </Reveal>
+            <FeatureCard key={feature.title} feature={feature} index={i} />
           ))}
         </div>
       </div>
