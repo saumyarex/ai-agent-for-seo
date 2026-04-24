@@ -5,7 +5,6 @@ import { motion, useReducedMotion } from "motion/react";
 import { Infinity as InfinityIcon } from "lucide-react";
 import Section from "../ui/Section";
 import SectionHeading from "../ui/SectionHeading";
-import Reveal from "../ui/Reveal";
 
 type Pain = {
   title: string;
@@ -166,14 +165,11 @@ function MiniVisual({ kind }: { kind: Pain["visual"] }) {
 
 function PainCard({ pain, index }: { pain: Pain; index: number }) {
   const { title, subtext } = pain;
-  const reduce = useReducedMotion();
 
   return (
-    <Reveal delay={index * 0.08} className="h-full">
-      <motion.div
-        whileHover={reduce ? undefined : { y: -4 }}
-        transition={{ type: "spring", stiffness: 260, damping: 22 }}
-        className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-black/5 bg-white/70 p-5 shadow-[0_1px_0_rgba(0,0,0,0.03),0_10px_30px_-12px_rgba(0,0,0,0.08)] backdrop-blur-sm transition-colors hover:border-brand/20"
+    <div className="h-full">
+      <div
+        className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-transparent p-5 transition-all duration-300 hover:border-black/10 hover:bg-white/60 hover:shadow-[0_10px_30px_-12px_rgba(0,0,0,0.08)] hover:backdrop-blur-sm"
       >
         <div
           aria-hidden
@@ -193,11 +189,11 @@ function PainCard({ pain, index }: { pain: Pain; index: number }) {
           <p className="mt-2 text-sm leading-6 text-black/55">{subtext}</p>
         </div>
 
-        <div className="relative mt-5 h-20 shrink-0 overflow-hidden rounded-xl bg-[#F8F8F5] ring-1 ring-black/5">
+        <div className="relative mt-5 h-20 shrink-0 overflow-hidden rounded-xl bg-black/[0.02] ring-1 ring-black/5 transition-colors group-hover:bg-[#F8F8F5]">
           <MiniVisual kind={pain.visual} />
         </div>
-      </motion.div>
-    </Reveal>
+      </div>
+    </div>
   );
 }
 
@@ -211,12 +207,8 @@ function ProblemSection() {
         aria-hidden
         className="pointer-events-none absolute inset-0 -z-10 [background-image:radial-gradient(rgba(0,0,0,0.04)_1px,transparent_1px)] [background-size:22px_22px] [mask-image:radial-gradient(ellipse_at_center,black_40%,transparent_75%)]"
       />
-      <motion.div
+      <div
         aria-hidden
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 1 }}
         className="pointer-events-none absolute top-1/3 left-1/2 -z-10 h-[520px] w-[520px] -translate-x-1/2 rounded-full bg-brand/10 blur-[120px]"
       />
 
@@ -229,35 +221,17 @@ function ProblemSection() {
           align="center"
         />
 
-        <div className="relative mt-16 grid gap-5 sm:grid-cols-2">
+        <div className="relative mt-16 grid grid-cols-1 sm:grid-cols-2 *:border-b *:border-black/5 [&>*:last-child]:border-b-0 sm:[&>*:nth-last-child(-n+2)]:border-b-0 sm:[&>*:nth-child(odd)]:border-r sm:[&>*:nth-child(odd)]:border-black/5">
           {pains.map((pain, i) => (
             <PainCard key={pain.title} pain={pain} index={i} />
           ))}
         </div>
 
-        <Reveal delay={0.15}>
-          <div className="mt-6 flex justify-center" aria-hidden>
-            <motion.div
-              initial={{ height: 0 }}
-              whileInView={{ height: 48 }}
-              transition={{ duration: 0.6, ease: "easeOut" }}
-              viewport={{ once: true }}
-              className="w-px bg-gradient-to-b from-brand/40 to-transparent"
-            />
-          </div>
-        </Reveal>
+        <div className="mt-6 flex justify-center" aria-hidden>
+          <div className="h-12 w-px bg-linear-to-b from-brand/40 to-transparent" />
+        </div>
 
-        <Reveal delay={0.2}>
-          <div className="group relative mt-2 overflow-hidden rounded-3xl border border-black/5 bg-white/80 p-8 sm:p-12 shadow-[0_20px_60px_-30px_rgba(0,0,0,0.12)] backdrop-blur-sm">
-            <div
-              aria-hidden
-              className="pointer-events-none absolute -top-24 -left-24 h-72 w-72 rounded-full bg-brand/5 blur-3xl"
-            />
-            <div
-              aria-hidden
-              className="pointer-events-none absolute -bottom-24 -right-24 h-72 w-72 rounded-full bg-brand/5 blur-3xl"
-            />
-            <div className="pointer-events-none absolute inset-0 opacity-60 [background-image:linear-gradient(rgba(0,0,0,0.035)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.035)_1px,transparent_1px)] [background-size:28px_28px] [mask-image:radial-gradient(ellipse_at_center,black_40%,transparent_80%)]" />
+        <div className="relative mt-2 p-8 sm:p-12">
 
             <div className="relative flex flex-col items-start gap-6 sm:flex-row sm:items-center">
               <motion.span
@@ -278,9 +252,8 @@ function ProblemSection() {
                   {finale.subtext}
                 </p>
               </div>
-            </div>
           </div>
-        </Reveal>
+        </div>
       </div>
     </Section>
   );

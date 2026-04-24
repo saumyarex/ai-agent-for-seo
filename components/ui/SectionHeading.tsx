@@ -1,7 +1,4 @@
-"use client";
-
 import React from "react";
-import Reveal from "./Reveal";
 
 interface SectionHeadingProps {
   eyebrow?: string;
@@ -34,35 +31,29 @@ function SectionHeading({
   return (
     <div className={`${alignClass} max-w-3xl`}>
       {eyebrow && (
-        <Reveal>
-          <span
-            className={`inline-flex items-center gap-2 rounded-full border px-3 py-1 text-xs font-medium backdrop-blur-md ${eyebrowClass}`}
-          >
-            {eyebrow}
-          </span>
-        </Reveal>
-      )}
-      <Reveal delay={0.05}>
-        <h2
-          className={`font-pixelify mt-5 text-3xl leading-tight tracking-tight sm:text-4xl md:text-5xl ${titleClass}`}
+        <span
+          className={`inline-flex items-center gap-2 rounded-full border px-3 py-1 text-xs font-medium backdrop-blur-md ${eyebrowClass}`}
         >
-          {title}
-          {titleHighlight && (
-            <>
-              <br />
-              <span className={`${highlightClass}`}>{titleHighlight}</span>
-            </>
-          )}
-        </h2>
-      </Reveal>
+          {eyebrow}
+        </span>
+      )}
+      <h2
+        className={`font-pixelify mt-5 text-3xl leading-tight tracking-tight sm:text-4xl md:text-5xl ${titleClass}`}
+      >
+        {title}
+        {titleHighlight && (
+          <>
+            <br />
+            <span className={`${highlightClass}`}>{titleHighlight}</span>
+          </>
+        )}
+      </h2>
       {description && (
-        <Reveal delay={0.1}>
-          <p
-            className={`mt-5 text-base leading-7 sm:text-lg sm:leading-8 ${descClass}`}
-          >
-            {description}
-          </p>
-        </Reveal>
+        <p
+          className={`mt-5 text-base leading-7 sm:text-lg sm:leading-8 ${descClass}`}
+        >
+          {description}
+        </p>
       )}
     </div>
   );
