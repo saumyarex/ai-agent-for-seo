@@ -161,7 +161,9 @@ function MiniVisual({ kind }: { kind: Pain["visual"] }) {
       "publish",
     ];
     return (
-      <div className={`${common} flex flex-wrap items-center gap-1.5 p-3`}>
+      <div
+        className={`${common} flex flex-wrap items-center justify-center gap-1.5 p-3`}
+      >
         {steps.map((s, i) => (
           <React.Fragment key={s}>
             <motion.span
@@ -297,7 +299,7 @@ function ProblemSection() {
         className="bg-brand/10 pointer-events-none absolute top-1/3 left-1/2 -z-10 h-[520px] w-[520px] -translate-x-1/2 rounded-full blur-[120px]"
       />
 
-      <div className="relative mx-auto max-w-7xl">
+      <div className="relative mx-auto max-w-6xl">
         <SectionHeading
           title="SEO isn't hard."
           titleHighlight="It's just exhausting."
