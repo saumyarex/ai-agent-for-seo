@@ -171,11 +171,6 @@ function PainCard({ pain, index }: { pain: Pain; index: number }) {
       <div
         className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-transparent p-5 transition-all duration-300 hover:border-black/10 hover:bg-white/60 hover:shadow-[0_10px_30px_-12px_rgba(0,0,0,0.08)] hover:backdrop-blur-sm"
       >
-        <div
-          aria-hidden
-          className="pointer-events-none absolute -top-16 -right-16 h-44 w-44 rounded-full bg-brand/10 blur-3xl opacity-0 transition-opacity duration-500 group-hover:opacity-100"
-        />
-
         <div className="flex-1">
           <div className="flex items-center gap-2">
             <span className="font-pixelify text-[11px] tracking-widest text-brand/70">
