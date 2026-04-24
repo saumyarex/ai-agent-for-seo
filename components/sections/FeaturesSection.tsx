@@ -156,7 +156,7 @@ function MiniVisual({ kind }: { kind: Feature["visual"] }) {
 function FeatureCard({ feature, index }: { feature: Feature; index: number }) {
   return (
     <div className="h-full">
-      <div className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-transparent p-5">
+      <div className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-transparent p-5 transition-colors duration-300 hover:border-black/10">
         <div className="flex-1">
           <div className="flex items-center gap-2">
             <span className="font-pixelify text-brand/70 text-[11px] tracking-widest">
