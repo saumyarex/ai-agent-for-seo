@@ -133,7 +133,6 @@ function HeroSection() {
               />
               <Button
                 title="See how it works"
-                leftIcon={ChevronDown}
                 isLink
                 href="#how-it-works"
                 variant="secondary"
