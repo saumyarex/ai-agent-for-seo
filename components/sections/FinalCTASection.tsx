@@ -81,7 +81,7 @@ function LiveResultsStrip() {
             delay={i * 0.06}
             className="flex flex-col items-center text-center"
           >
-            <div className="text-2xl font-medium text-neutral-950 tabular-nums sm:text-3xl">
+            <div className="text-2xl font-semibold text-neutral-950 tabular-nums sm:text-3xl">
               {m.prefix}
               <AnimatedNumber
                 target={m.value}
