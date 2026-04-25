@@ -35,13 +35,13 @@ function Button({
   ...motionProps
 }: ButtonProps) {
   const baseStyles =
-    "inline-flex items-center gap-2 rounded-lg font-medium transition";
+    "inline-flex items-center gap-1 rounded-lg font-medium transition";
 
   const variantStyles = {
     primary:
       "h-10 overflow-hidden bg-neutral-950 px-4 text-sm text-white sm:px-5 group relative",
     secondary:
-      "h-10 items-center justify-center gap-2 border border-black/10 bg-white/72 px-4 text-base text-[#141414] backdrop-blur-md hover:bg-white",
+      "h-10 items-center justify-center gap-1 border border-black/10 bg-white/72 px-4 text-base text-[#141414] backdrop-blur-md hover:bg-white",
   };
 
   const buttonContent = (

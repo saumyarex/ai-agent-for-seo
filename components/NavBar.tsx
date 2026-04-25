@@ -4,16 +4,32 @@ import React, { useState, useEffect } from "react";
 import { motion, useScroll, useSpring, AnimatePresence } from "motion/react";
 import { ArrowRight, Menu, X } from "lucide-react";
 import Image from "next/image";
+import Button from "./Button";
 
 const navLinks = [
-  { href: "https://www.get-ryze.ai/", label: "AI Marketer" },
+  {
+    href: "#",
+    label: "AI Marketer",
+    children: [
+      { href: "#", label: "AI Marketer" },
+      { href: "#", label: "Pricing" },
+    ],
+  },
   {
     href: "https://www.get-ryze.ai/how-to-connect-claude-to-google-meta-ads-mcp",
     label: "MCP",
   },
-  { href: "https://www.get-ryze.ai/agency", label: "Agency" },
+  { href: "#", label: "Agency" },
   { href: "#", label: "AI SEO" },
-  { href: "https://www.get-ryze.ai/about", label: "About Us" },
+  {
+    href: "#",
+    label: "About Us",
+    children: [
+      { href: "#", label: "Our Story" },
+      { href: "#", label: "Case Studies" },
+      { href: "#", label: "Community" },
+    ],
+  },
 ];
 
 const logoLink = "https://www.get-ryze.ai//main-logo-sun-2.png";
@@ -90,13 +106,29 @@ function NavBar() {
             transition={{ type: "spring", stiffness: 200, damping: 15 }}
           >
             {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                className="text-sm font-medium tracking-wider transition duration-200 hover:-translate-y-0.5 hover:text-neutral-950 active:translate-y-0 focus:translate-y-0 lg:text-base"
-              >
-                {link.label}
-              </a>
+              <div key={link.label} className="group relative">
+                <a
+                  href={link.href}
+                  className="inline-block text-sm font-medium tracking-wider transition duration-200 hover:-translate-y-0.5 hover:text-neutral-950 focus:translate-y-0 active:translate-y-0 lg:text-base"
+                >
+                  {link.label}
+                </a>
+                {link.children && (
+                  <div className="pointer-events-none absolute top-full left-1/2 z-50 min-w-44 origin-top -translate-x-1/2 scale-90 pt-3 opacity-0 transition-all duration-200 ease-out group-hover:pointer-events-auto group-hover:scale-100 group-hover:opacity-100">
+                    <div className="rounded-xl border border-neutral-200/60 bg-white/95 p-2 shadow-lg backdrop-blur-md">
+                      {link.children.map((child) => (
+                        <a
+                          key={child.label}
+                          href={child.href}
+                          className="block rounded-lg px-3 py-2 text-sm font-medium text-neutral-700 transition hover:bg-neutral-100 hover:text-neutral-950"
+                        >
+                          {child.label}
+                        </a>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
             ))}
           </motion.nav>
 
@@ -107,7 +139,7 @@ function NavBar() {
           >
             <motion.a
               href="#generator"
-              className="group relative hidden h-10 items-center gap-0.5 overflow-hidden rounded-lg bg-neutral-950 px-4 text-sm font-medium text-white transition sm:px-5 lg:inline-flex"
+              className="group relative hidden h-10 items-center gap-1 overflow-hidden rounded-lg bg-neutral-950 px-4 text-sm font-medium text-white transition sm:px-5 lg:inline-flex"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
@@ -168,9 +200,11 @@ function NavBar() {
                 </motion.a>
               ))}
 
-              <motion.a
-                href="#generator"
-                className="mt-4 inline-flex h-10 items-center gap-0.5 rounded-lg bg-neutral-950 px-4 font-medium text-white transition hover:bg-neutral-800"
+              <Button
+                title="Start with Ryze"
+                rightIcon={ArrowRight}
+                variant="primary"
+                className="mt-4 cursor-pointer"
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{
@@ -179,11 +213,13 @@ function NavBar() {
                   damping: 30,
                   delay: navLinks.length * 0.05,
                 }}
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                Start with Ryze
-                <ArrowRight size={16} />
-              </motion.a>
+                onClick={() => {
+                  setIsMobileMenuOpen(false);
+                  document
+                    .querySelector("#generator")
+                    ?.scrollIntoView({ behavior: "smooth" });
+                }}
+              />
             </nav>
           </motion.div>
         )}
