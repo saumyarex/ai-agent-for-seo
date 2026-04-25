@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowRight, Play, Sparkles } from "lucide-react";
+import { ArrowRight, Play, Sparkles, ChevronDown } from "lucide-react";
 import { motion } from "motion/react";
 import RyzeAgentHero from "./RyzeAgentHero";
 import Button from "./Button";
@@ -132,10 +132,10 @@ function HeroSection() {
                 variant="primary"
               />
               <Button
-                title="Watch demo"
-                leftIcon={Play}
+                title="See how it works"
+                leftIcon={ChevronDown}
                 isLink
-                href="#demo"
+                href="#how-it-works"
                 variant="secondary"
               />
             </motion.div>
