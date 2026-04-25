@@ -99,7 +99,7 @@ export default function RyzeAgentHero() {
         <style>{`
           .ryze-scroll::-webkit-scrollbar { width: 4px; }
           .ryze-scroll::-webkit-scrollbar-track { background: transparent; }
-          .ryze-scroll::-webkit-scrollbar-thumb { background: rgba(16,185,129,0.3); border-radius: 99px; }
+          .ryze-scroll::-webkit-scrollbar-thumb { background: rgba(100,116,139,0.3); border-radius: 99px; }
         `}</style>
         <div
           className="absolute top-0 left-0"
@@ -111,7 +111,7 @@ export default function RyzeAgentHero() {
           }}
         >
           {/* Main glass panel */}
-          <div className="relative h-full w-full overflow-hidden rounded-2xl border border-white/50 bg-white/60 shadow-[0_30px_80px_-20px_rgba(15,23,42,0.25)] backdrop-blur-2xl">
+          <div className="relative h-full w-full overflow-hidden rounded-2xl border border-white/50 bg-white/90 shadow-[0_30px_80px_-20px_rgba(15,23,42,0.25)] backdrop-blur-2xl">
             <div className="flex h-full">
               {/* Sidebar */}
               <div className="flex flex-col items-center gap-1 border-r border-slate-200/60 bg-white/40 px-2.5 py-4">
@@ -155,7 +155,7 @@ export default function RyzeAgentHero() {
                   </div>
                   <div className="flex w-full max-w-130 items-center gap-2 rounded-xl border border-slate-200 bg-white px-4 py-2.5 shadow-sm">
                     <Sparkles
-                      className="h-3.5 w-3.5 shrink-0 text-emerald-500"
+                      className="h-3.5 w-3.5 shrink-0 text-slate-800"
                       strokeWidth={2}
                     />
                     <input
