@@ -3,12 +3,12 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
-  --brand: #D97706;
-  --brand-rgb: 217 119 6;
+  --brand: #FF4701;
+  --brand-rgb: 255 71 1;
 }
 
 @theme {
-  --color-brand: #D97706;
+  --color-brand: #FF4701;
 }
 
 @theme inline {

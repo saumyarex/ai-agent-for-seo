@@ -122,7 +122,7 @@ function Mock({ kind }: { kind: Step["mock"] }) {
                     backgroundColor: [
                       "rgba(0,0,0,0.15)",
                       "rgba(0,0,0,0.15)",
-                      "rgba(217, 119, 6, 1)",
+                      "rgba(255, 71, 1, 1)",
                     ],
                   }
             }
