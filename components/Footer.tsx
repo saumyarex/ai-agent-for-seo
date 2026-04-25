@@ -66,16 +66,15 @@ const companyLinks = [
 ];
 
 const legalLinks = [
-  { label: "Privacy", href: "#" },
-  { label: "Terms", href: "#" },
-  { label: "Security", href: "#" },
+  { label: "Privacy Policy", href: "https://www.get-ryze.ai/privacy" },
+  { label: "Terms of Service", href: "https://www.get-ryze.ai/term-services" },
 ];
 
 const socials = [
   { label: "X", href: "https://twitter.com/getryze", icon: XIcon },
   {
     label: "LinkedIn",
-    href: "https://linkedin.com/company/getryze",
+    href: "https://www.linkedin.com/company/get-ryze-ai/",
     icon: LinkedInIcon,
   },
   { label: "Instagram", href: "https://instagram.com", icon: InstagramIcon },
@@ -94,7 +93,7 @@ function Footer() {
           backgroundSize: "48px 48px",
         }}
       />
-      <div className="relative mx-auto w-full max-w-6xl px-5 py-16 sm:px-8 sm:py-20 md:px-10 lg:px-14">
+      <div className="relative mx-auto w-full max-w-6xl px-5 py-12 sm:px-8 sm:py-14 md:px-10 lg:px-14">
         <div className="grid gap-12 lg:grid-cols-[1.4fr_1fr_1fr_1fr]">
           {/* Brand */}
           <div>
