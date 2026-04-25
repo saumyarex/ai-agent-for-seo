@@ -1,9 +1,8 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ArrowRight } from "lucide-react";
 import { motion, useInView } from "motion/react";
-import Reveal from "../ui/Reveal";
 import Button from "../Button";
 
 type Metric = {
@@ -65,7 +64,7 @@ function LiveResultsStrip() {
       ref={ref}
       className="mx-auto w-full max-w-4xl rounded-2xl border border-black/5 bg-white/70 p-5 shadow-sm backdrop-blur-md sm:p-6 lg:border-transparent lg:bg-transparent lg:p-0 lg:shadow-none lg:backdrop-blur-none"
     >
-      <div className="flex items-center justify-center gap-2 text-xs font-semibold tracking-[0.2em] text-neutral-700">
+      <div className="font-pixelify flex items-center justify-center gap-2 text-xs font-semibold tracking-[0.2em] text-neutral-700">
         <span className="inline-block h-2 w-2 bg-emerald-400" />
         LIVE RESULTS · 2,000+ CLIENTS
       </div>
@@ -79,7 +78,7 @@ function LiveResultsStrip() {
             transition={{ duration: 0.35, delay: i * 0.06 }}
             className="flex flex-col items-center text-center"
           >
-            <div className="font-pixelify text-2xl font-medium text-neutral-950 tabular-nums sm:text-3xl">
+            <div className="text-2xl font-medium text-neutral-950 tabular-nums sm:text-3xl">
               {m.prefix}
               <AnimatedNumber
                 target={m.value}
@@ -95,9 +94,14 @@ function LiveResultsStrip() {
         ))}
       </div>
 
-      <div className="font-pixelify mt-5 flex items-center justify-center gap-2 text-[11px] text-emerald-700">
-        <span className="inline-block h-1.5 w-1.5 bg-emerald-400" />
-        All systems ok
+      <div className="font-pixelify mt-5 flex flex-col items-center justify-center gap-2 text-[11px] text-emerald-700">
+        <span className="block text-neutral-700">
+          Last updated: Apr 24, 2026
+        </span>
+        <div>
+          <span className="mx-1 inline-block h-1.5 w-1.5 bg-emerald-400" />
+          All systems ok
+        </div>
       </div>
     </div>
   );
@@ -119,53 +123,32 @@ function FinalCTASection() {
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.55)_0%,rgba(255,255,255,0.25)_38%,transparent_72%)]" />
 
         <div className="relative z-10 mx-auto flex w-full max-w-4xl flex-col items-center text-center">
-          <Reveal>
-            <LiveResultsStrip />
-          </Reveal>
+          <LiveResultsStrip />
 
           <div className="mt-14 h-px w-24 bg-black/10" />
 
-          <Reveal delay={0.05}>
-            <p className="font-pixelify mt-10 text-base text-black/55 sm:text-lg">
-              While others still check dashboards,{" "}
-              <span className="text-brand">you compound</span>.
+          <h2 className="font-pixelify mt-5 text-4xl leading-tight font-medium text-neutral-950 sm:text-5xl md:text-6xl">
+            Stop doing SEO
+            <br />
+            <span className="text-black/45">Start running it</span>
+          </h2>
+
+          <p className="mx-auto mt-5 max-w-lg text-base leading-7 text-black/65">
+            Ryze is live. Join the teams already running SEO on autopilot.
+          </p>
+
+          <div className="mt-8 flex flex-col items-center gap-3">
+            <Button
+              title="Start with Ryze"
+              rightIcon={ArrowRight}
+              isLink
+              href="#start"
+              variant="primary"
+            />
+            <p className="text-xs text-black/50">
+              No spam. No fluff. Just results.
             </p>
-          </Reveal>
-
-          <Reveal delay={0.08}>
-            <span className="mt-6 inline-flex items-center gap-2 rounded-full border border-black/10 bg-white/80 px-3 py-1 text-xs font-medium text-[#1f2937] backdrop-blur-md">
-              Available now
-            </span>
-          </Reveal>
-
-          <Reveal delay={0.1}>
-            <h2 className="font-pixelify mt-5 text-4xl leading-tight font-medium text-neutral-950 sm:text-5xl md:text-6xl">
-              Stop doing SEO.
-              <br />
-              <span className="text-black/45">Start running it.</span>
-            </h2>
-          </Reveal>
-
-          <Reveal delay={0.15}>
-            <p className="mx-auto mt-5 max-w-lg text-base leading-7 text-black/65">
-              Ryze is live. Join the teams already running SEO on autopilot.
-            </p>
-          </Reveal>
-
-          <Reveal delay={0.2}>
-            <div className="mt-8 flex flex-col items-center gap-3">
-              <Button
-                title="Start with Ryze"
-                rightIcon={ArrowRight}
-                isLink
-                href="#start"
-                variant="primary"
-              />
-              <p className="text-xs text-black/50">
-                No spam. No fluff. Just results.
-              </p>
-            </div>
-          </Reveal>
+          </div>
         </div>
       </div>
     </section>
