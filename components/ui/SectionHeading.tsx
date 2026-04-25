@@ -1,4 +1,5 @@
 import React from "react";
+import Reveal from "./Reveal";
 
 interface SectionHeadingProps {
   eyebrow?: string;
@@ -10,7 +11,6 @@ interface SectionHeadingProps {
 }
 
 function SectionHeading({
-  eyebrow,
   title,
   titleHighlight,
   description,
@@ -20,25 +20,14 @@ function SectionHeading({
   const alignClass = align === "center" ? "text-center mx-auto" : "text-left";
   const isDark = tone === "dark";
 
-  const eyebrowClass = isDark
-    ? "border-white/15 bg-white/5 text-white/80"
-    : "border-black/10 bg-white/70 text-[#1f2937]";
-
   const titleClass = isDark ? "text-white" : "text-neutral-950";
   const highlightClass = isDark ? "text-white/55" : "text-black/45";
   const descClass = isDark ? "text-white/65" : "text-black/65";
 
   return (
     <div className={`${alignClass} max-w-3xl`}>
-      {eyebrow && (
-        <span
-          className={`inline-flex items-center gap-2 rounded-full border px-3 py-1 text-xs font-medium backdrop-blur-md ${eyebrowClass}`}
-        >
-          {eyebrow}
-        </span>
-      )}
       <h2
-        className={`font-pixelify mt-5 text-3xl leading-tight tracking-tight sm:text-4xl md:text-5xl ${titleClass}`}
+        className={`font-pixelify mt-3 text-3xl leading-tight tracking-tight sm:text-4xl md:text-5xl ${titleClass}`}
       >
         {title}
         {titleHighlight && (
@@ -50,7 +39,7 @@ function SectionHeading({
       </h2>
       {description && (
         <p
-          className={`mt-5 text-base leading-7 sm:text-lg sm:leading-8 ${descClass}`}
+          className={`mt-3 text-base leading-7 sm:text-lg sm:leading-8 ${descClass}`}
         >
           {description}
         </p>
