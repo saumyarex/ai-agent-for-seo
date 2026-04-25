@@ -75,7 +75,7 @@ function HeroSection() {
               variants={mainChild}
               className="inline-flex items-center gap-2 rounded-full border border-black/10 bg-white/70 px-4 py-2 text-sm font-medium text-[#1f2937] backdrop-blur-md"
             >
-              <Sparkles className="h-4 w-4 text-brand" />
+              <Sparkles className="text-brand h-4 w-4" />
               Autonomous SEO — built for modern search.
             </motion.div>
 
@@ -85,13 +85,25 @@ function HeroSection() {
               animate="show"
               className="font-pixelify mx-auto mt-8 flex w-full flex-wrap justify-center gap-x-3 text-2xl font-medium text-neutral-950 sm:text-3xl md:max-w-7xl md:text-6xl 2xl:text-8xl"
             >
-              <motion.span variants={headingChild} custom={0} className="font-semibold">
+              <motion.span
+                variants={headingChild}
+                custom={0}
+                className="font-semibold"
+              >
                 Stop Doing
               </motion.span>
-              <motion.span variants={headingChild} custom={1} className="font-semibold">
+              <motion.span
+                variants={headingChild}
+                custom={1}
+                className="font-semibold"
+              >
                 SEO
               </motion.span>
-              <motion.span variants={headingChild} custom={2} className="block w-full" />
+              <motion.span
+                variants={headingChild}
+                custom={2}
+                className="block w-full"
+              />
               <motion.span variants={headingChild} custom={2}>
                 Let It Run
               </motion.span>
@@ -106,7 +118,6 @@ function HeroSection() {
             >
               An AI system that finds opportunities, creates content, fixes
               technical issues, and gets you cited in AI search — automatically.
-              No dashboards. No busywork. Just growth.
             </motion.p>
 
             <motion.div
@@ -128,7 +139,10 @@ function HeroSection() {
                 variant="secondary"
               />
             </motion.div>
-            <motion.p variants={mainChild} className="mt-3 text-xs text-black/55">
+            <motion.p
+              variants={mainChild}
+              className="mt-3 text-xs text-black/55"
+            >
               Live now. Join teams already running SEO on autopilot.
             </motion.p>
           </div>
