@@ -437,7 +437,10 @@ function SolutionSection() {
   const reduce = useReducedMotion();
 
   return (
-    <Section id="solution" className="relative overflow-hidden bg-white py-16! sm:py-20!">
+    <Section
+      id="solution"
+      className="relative overflow-hidden bg-white py-16! sm:py-20!"
+    >
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0 -z-10 [background-image:radial-gradient(rgba(0,0,0,0.04)_1px,transparent_1px)] [mask-image:radial-gradient(ellipse_at_center,black_40%,transparent_75%)] [background-size:22px_22px]"
@@ -448,10 +451,12 @@ function SolutionSection() {
       />
 
       <div className="relative mx-auto max-w-6xl">
-        <p className="text-center text-base text-black/55 sm:text-lg">
-          SEO is no longer something you <em className="text-black/40">do</em>.
-          It&rsquo;s something you <span className="text-brand">run</span>.
-        </p>
+        <Reveal>
+          <p className="text-center text-base text-black/55 sm:text-lg">
+            SEO is no longer something you <em className="text-black/40">do</em>
+            . It&rsquo;s something you <span className="text-brand">run</span>.
+          </p>
+        </Reveal>
 
         <div className="mt-4">
           <SectionHeading
