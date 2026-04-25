@@ -2,8 +2,8 @@
 
 import { ArrowRight, Play, Sparkles, ChevronDown } from "lucide-react";
 import { motion } from "motion/react";
-import RyzeAgentHero from "./RyzeAgentHero";
-import Button from "./Button";
+import RyzeAgentHero from "./ui/RyzeAgentHero";
+import Button from "./ui/Button";
 
 const mainContainer = {
   hidden: {},
