@@ -16,7 +16,7 @@ const navLinks = [
     ],
   },
   {
-    href: "https://www.get-ryze.ai/how-to-connect-claude-to-google-meta-ads-mcp",
+    href: "#",
     label: "MCP",
   },
   { href: "#", label: "Agency" },
@@ -31,8 +31,6 @@ const navLinks = [
     ],
   },
 ];
-
-const logoLink = "https://www.get-ryze.ai//main-logo-sun-2.png";
 
 function NavBar() {
   const [isScrolled, setIsScrolled] = useState(false);
