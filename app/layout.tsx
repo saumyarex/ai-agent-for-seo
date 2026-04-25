@@ -60,6 +60,13 @@ export const metadata: Metadata = {
       "Ryze is the AI agent for SEO that finds ranking opportunities, builds content plans, flags technical blockers, and gives your team the clearest next step to win more qualified traffic.",
     images: ["/hero.webp"],
   },
+  icons: {
+    icon: [
+      { url: "/favicon.ico" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+    ],
+    apple: "/apple-touch-icon.png",
+  },
 };
 
 export default function RootLayout({
