@@ -121,7 +121,6 @@ function FinalCTASection() {
         style={{ backgroundImage: "url('/footer.webp')" }}
       >
         {/* white background overlay to create focus */}
-        <div className="absolute inset-0 bg-white/10" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.04)_0%,rgba(255,255,255,0.1)_24%,rgba(255,255,255,0.16)_54%,rgba(255,255,255,0.22)_78%,rgba(255,255,255,0.32)_100%)]" />
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.55)_0%,rgba(255,255,255,0.25)_38%,transparent_72%)]" />
 
