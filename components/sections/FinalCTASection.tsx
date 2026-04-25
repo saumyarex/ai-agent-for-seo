@@ -65,7 +65,11 @@ function LiveResultsStrip() {
       className="mx-auto w-full max-w-4xl rounded-2xl border border-black/5 bg-white/70 p-5 shadow-sm backdrop-blur-md sm:p-6 lg:border-transparent lg:bg-transparent lg:p-0 lg:shadow-none lg:backdrop-blur-none"
     >
       <div className="font-pixelify flex items-center justify-center gap-2 text-xs font-semibold tracking-[0.2em] text-neutral-700">
-        <span className="inline-block h-2 w-2 bg-emerald-400" />
+        <motion.span
+          className="inline-block h-2 w-2 bg-emerald-400"
+          animate={{ opacity: [1, 0.3, 1] }}
+          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+        />
         LIVE RESULTS · 2,000+ CLIENTS
       </div>
 
