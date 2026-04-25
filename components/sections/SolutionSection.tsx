@@ -437,7 +437,7 @@ function SolutionSection() {
   const reduce = useReducedMotion();
 
   return (
-    <Section id="solution" className="relative overflow-hidden bg-white">
+    <Section id="solution" className="relative overflow-hidden bg-white py-16! sm:py-20!">
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0 -z-10 [background-image:radial-gradient(rgba(0,0,0,0.04)_1px,transparent_1px)] [mask-image:radial-gradient(ellipse_at_center,black_40%,transparent_75%)] [background-size:22px_22px]"
@@ -448,77 +448,84 @@ function SolutionSection() {
       />
 
       <div className="relative mx-auto max-w-6xl">
-        <Reveal>
-          <p className="font-pixelify text-center text-base text-black/55 sm:text-lg">
-            SEO is no longer something you <em className="text-black/40">do</em>
-            . It&rsquo;s something you <span className="text-brand">run</span>.
-          </p>
-        </Reveal>
+        <p className="text-center text-base text-black/55 sm:text-lg">
+          SEO is no longer something you <em className="text-black/40">do</em>.
+          It&rsquo;s something you <span className="text-brand">run</span>.
+        </p>
 
         <div className="mt-4">
           <SectionHeading
             title="Meet your autonomous"
             titleHighlight="SEO system."
-            description="A loop that finds what matters, ships the work, and compounds results — while you stay in control."
           />
         </div>
 
         <div className="relative mt-16">
           <ul className="relative grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4">
-            {nodes.map(({ kind, title, description }, i) => (
-              <div
-                key={title}
-                className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-transparent p-3 transition-all duration-300 hover:border-black/10 hover:shadow-[0_10px_30px_-12px_rgba(0,0,0,0.08)]"
-              >
-                {/* iso scene canvas */}
-                <div className="relative aspect-[5/4] w-full overflow-hidden rounded-xl">
-                  <div
-                    aria-hidden
-                    className="absolute inset-0 opacity-0 transition-opacity duration-300 [background:radial-gradient(ellipse_at_50%_70%,rgba(217,119,6,0.07),transparent_60%)] group-hover:opacity-100"
-                  />
-                  <div
-                    aria-hidden
-                    className="absolute inset-0 [background-image:linear-gradient(60deg,rgba(0,0,0,0.05)_1px,transparent_1px),linear-gradient(-60deg,rgba(0,0,0,0.05)_1px,transparent_1px)] [background-size:18px_31px] opacity-0 transition-opacity duration-300 group-hover:opacity-50"
-                  />
-                  <div className="absolute inset-0 flex items-end justify-center p-2">
-                    <Scene kind={kind} reduce={reduce} />
+            {nodes.map(({ kind, title, description }, i) => {
+              const dividerClasses = [
+                // i=0: no dividers
+                "",
+                // i=1: left on sm+ ; top on mobile
+                "border-t border-black/8 sm:border-t-0 sm:border-l",
+                // i=2: top on mobile & sm; left on md
+                "border-t border-black/8 md:border-t-0 md:border-l",
+                // i=3: top on mobile & sm; left on sm & md
+                "border-t border-black/8 sm:border-l md:border-t-0",
+              ][i];
+              return (
+                <div
+                  key={title}
+                  className={`group relative flex h-full flex-col overflow-hidden p-3 transition-all duration-300 hover:bg-black/[0.015] ${dividerClasses ?? ""}`}
+                >
+                  {/* iso scene canvas */}
+                  <div className="relative aspect-[5/4] w-full overflow-hidden rounded-xl">
+                    <div
+                      aria-hidden
+                      className="absolute inset-0 opacity-0 transition-opacity duration-300 [background:radial-gradient(ellipse_at_50%_70%,rgba(217,119,6,0.07),transparent_60%)] group-hover:opacity-100"
+                    />
+                    <div
+                      aria-hidden
+                      className="absolute inset-0 [background-image:linear-gradient(60deg,rgba(0,0,0,0.05)_1px,transparent_1px),linear-gradient(-60deg,rgba(0,0,0,0.05)_1px,transparent_1px)] [background-size:18px_31px] opacity-0 transition-opacity duration-300 group-hover:opacity-50"
+                    />
+                    <div className="absolute inset-0 flex items-end justify-center p-2">
+                      <Scene kind={kind} reduce={reduce} />
+                    </div>
+                    {/* step chip */}
+                    <span className="font-pixelify absolute top-3 left-3 inline-flex items-center gap-1 rounded-full px-1.5 py-0.5 text-[10px] tracking-[0.18em] text-black/55">
+                      <span className="text-brand">0{i + 1}</span>
+                      <span className="text-black/30">/</span>
+                      <span>04</span>
+                    </span>
                   </div>
-                  {/* step chip */}
-                  <span className="font-pixelify absolute top-3 left-3 inline-flex items-center gap-1 rounded-full px-1.5 py-0.5 text-[10px] tracking-[0.18em] text-black/55">
-                    <span className="text-brand">0{i + 1}</span>
-                    <span className="text-black/30">/</span>
-                    <span>04</span>
-                  </span>
-                </div>
 
-                {/* copy */}
-                <div className="flex flex-1 flex-col px-2 pt-4 pb-2">
-                  <p className="text-base font-semibold text-neutral-950">
-                    {title}
-                  </p>
-                  <p className="mt-1 text-sm leading-6 text-black/55">
-                    {description}
-                  </p>
+                  {/* copy */}
+                  <div className="flex flex-1 flex-col px-2 pt-4 pb-2">
+                    <p className="text-base font-semibold text-neutral-950">
+                      {title}
+                    </p>
+                    <p className="mt-1 text-sm leading-6 text-black/55">
+                      {description}
+                    </p>
+                  </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </ul>
 
-          <Reveal delay={0.4}>
-            <div className="mt-12 flex items-center justify-center">
-              <div className="text-brand/85 font-pixelify ring-brand/20 inline-flex items-center gap-2 rounded-full bg-white/80 px-3 py-1.5 text-[11px] tracking-[0.22em] ring-1 backdrop-blur">
-                <motion.span
-                  aria-hidden
-                  animate={reduce ? undefined : { rotate: 360 }}
-                  transition={{ duration: 6, repeat: Infinity, ease: "linear" }}
-                  className="inline-block"
-                >
-                  ↻
-                </motion.span>
-                RUNS CONTINUOUSLY
-              </div>
+          <div className="mt-12 flex items-center justify-center">
+            <div className="text-brand/85 font-pixelify ring-brand/20 inline-flex items-center gap-2 rounded-full bg-white/80 px-3 py-1.5 text-[11px] tracking-[0.22em] ring-1 backdrop-blur">
+              <motion.span
+                aria-hidden
+                animate={reduce ? undefined : { rotate: 360 }}
+                transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
+                className="inline-block"
+              >
+                ↻
+              </motion.span>
+              RUNS CONTINUOUSLY
             </div>
-          </Reveal>
+          </div>
         </div>
       </div>
     </Section>
