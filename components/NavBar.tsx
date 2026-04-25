@@ -1,10 +1,10 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { motion, useScroll, useSpring, AnimatePresence } from "motion/react";
 import { ArrowRight, Menu, X } from "lucide-react";
 import Image from "next/image";
-import Button from "./Button";
+import Button from "./ui/Button";
 
 const navLinks = [
   {

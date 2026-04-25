@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { ArrowRight } from "lucide-react";
 import { motion, useInView } from "motion/react";
-import Button from "../Button";
+import Button from "../ui/Button";
 import Reveal from "../ui/Reveal";
 
 type Metric = {

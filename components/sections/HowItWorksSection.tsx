@@ -1,10 +1,9 @@
 "use client";
 
-import React from "react";
 import { motion, useReducedMotion } from "motion/react";
 import Section from "../ui/Section";
 import SectionHeading from "../ui/SectionHeading";
-import MacbookMockup from "../MacbookMockup";
+import MacbookMockup from "../ui/MacbookMockup";
 
 type Step = {
   title: string;
