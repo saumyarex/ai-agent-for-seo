@@ -44,7 +44,13 @@ const finale = {
   subtext: "You’re stuck in the cycle of doing SEO, but never seeing SEO work.",
 };
 
-function MiniVisual({ kind, inView }: { kind: Pain["visual"]; inView: boolean }) {
+function MiniVisual({
+  kind,
+  inView,
+}: {
+  kind: Pain["visual"];
+  inView: boolean;
+}) {
   const common = "absolute inset-0 w-full h-full";
 
   if (kind === "search") {
@@ -256,7 +262,10 @@ function PainCard({ pain, index }: { pain: Pain; index: number }) {
 
   return (
     <div className="h-full">
-      <div ref={ref} className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-transparent p-5 transition-all duration-300 hover:border-black/10 hover:shadow-[0_10px_30px_-12px_rgba(0,0,0,0.08)]">
+      <div
+        ref={ref}
+        className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-transparent p-5 transition-all duration-300 hover:border-black/10 hover:shadow-[0_10px_30px_-12px_rgba(0,0,0,0.08)]"
+      >
         <div className="flex-1">
           <div className="flex items-center gap-2">
             <span className="font-pixelify text-brand/70 text-[11px] tracking-widest">
@@ -318,7 +327,7 @@ function ProblemSection() {
           <div className="relative flex flex-col items-center gap-6 text-center">
             <motion.span
               animate={reduce ? undefined : { rotate: 360 }}
-              transition={{ duration: 7, repeat: Infinity, ease: "linear" }}
+              transition={{ duration: 5, repeat: Infinity, ease: "linear" }}
               className="bg-brand ring-brand/20 flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl text-white shadow-[0_10px_30px_-10px_rgb(var(--brand-rgb)/0.55)] ring-1"
             >
               <FinaleIcon size={26} />
