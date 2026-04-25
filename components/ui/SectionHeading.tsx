@@ -1,4 +1,3 @@
-import React from "react";
 import Reveal from "./Reveal";
 
 interface SectionHeadingProps {
@@ -26,23 +25,27 @@ function SectionHeading({
 
   return (
     <div className={`${alignClass} max-w-3xl`}>
-      <h2
-        className={`font-pixelify mt-3 text-3xl leading-tight tracking-tight sm:text-4xl md:text-5xl ${titleClass}`}
-      >
-        {title}
-        {titleHighlight && (
-          <>
-            <br />
-            <span className={`${highlightClass}`}>{titleHighlight}</span>
-          </>
-        )}
-      </h2>
-      {description && (
-        <p
-          className={`mt-3 text-base leading-7 sm:text-lg sm:leading-8 ${descClass}`}
+      <Reveal>
+        <h2
+          className={`font-pixelify mt-3 text-3xl leading-tight tracking-tight sm:text-4xl md:text-5xl ${titleClass}`}
         >
-          {description}
-        </p>
+          {title}
+          {titleHighlight && (
+            <>
+              <br />
+              <span className={`${highlightClass}`}>{titleHighlight}</span>
+            </>
+          )}
+        </h2>
+      </Reveal>
+      {description && (
+        <Reveal delay={0.1}>
+          <p
+            className={`mt-3 text-base leading-7 sm:text-lg sm:leading-8 ${descClass}`}
+          >
+            {description}
+          </p>
+        </Reveal>
       )}
     </div>
   );

@@ -6,7 +6,6 @@ import { motion, useReducedMotion } from "motion/react";
 interface RevealProps {
   children: React.ReactNode;
   delay?: number;
-  y?: number;
   className?: string;
   as?: "div" | "li" | "span";
 }
@@ -14,7 +13,6 @@ interface RevealProps {
 function Reveal({
   children,
   delay = 0,
-  y = 16,
   className = "",
   as = "div",
 }: RevealProps) {
@@ -23,12 +21,12 @@ function Reveal({
 
   return (
     <MotionTag
-      initial={{ opacity: 0, y: shouldReduceMotion ? 0 : y }}
-      whileInView={{ opacity: 1, y: 0 }}
+      initial={{ opacity: 0, filter: shouldReduceMotion ? "blur(0px)" : "blur(15px)" }}
+      whileInView={{ opacity: 1, filter: "blur(0px)" }}
       viewport={{ once: true, margin: "-80px" }}
       transition={{
-        duration: 0.28,
-        ease: [0.23, 1, 0.32, 1],
+        duration: 0.4,
+        ease: [0.6, 0.9, 0.9, 1],
         delay,
       }}
       className={className}
