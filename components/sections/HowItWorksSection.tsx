@@ -4,6 +4,7 @@ import React from "react";
 import { motion, useReducedMotion } from "motion/react";
 import Section from "../ui/Section";
 import SectionHeading from "../ui/SectionHeading";
+import MacbookMockup from "../MacbookMockup";
 
 type Step = {
   title: string;
@@ -171,59 +172,76 @@ function HowItWorksSection() {
       <div className="relative mx-auto max-w-5xl">
         <SectionHeading title="Set it up once." titleHighlight="Let it run." />
 
-        {/* numbered circles with animated connecting line */}
-        <div className="relative mt-12 hidden md:block">
-          <div
-            aria-hidden
-            className="absolute top-1/2 right-12 left-12 h-px -translate-y-1/2 bg-black/5"
-          />
-          <motion.div
-            aria-hidden
-            initial={{ scaleX: 0 }}
-            whileInView={{ scaleX: 1 }}
-            transition={{ duration: 1.6, ease: "easeOut" }}
-            viewport={{ once: true }}
-            className="from-brand/60 via-brand/40 to-brand/20 absolute top-1/2 right-12 left-12 h-px origin-left -translate-y-1/2 bg-linear-to-r"
-          />
-          <ol className="relative grid grid-cols-3">
-            {steps.map((step, i) => (
-              <li key={step.title} className="flex justify-center">
-                <motion.span
-                  initial={{ scale: 0.6, opacity: 0 }}
-                  whileInView={{ scale: 1, opacity: 1 }}
-                  transition={{
-                    delay: 0.2 + i * 0.55,
-                    duration: 0.4,
-                    ease: "easeOut",
-                  }}
+        <div className="relative mx-auto mt-10 flex max-w-3xl justify-center">
+          <MacbookMockup>
+            <div className="flex h-full w-full flex-col items-center justify-center px-10 py-8">
+              {/* numbered circles with animated connecting line */}
+              <div className="relative w-full max-w-3xl">
+                <div
+                  aria-hidden
+                  className="absolute top-1/2 right-12 left-12 h-px -translate-y-1/2 bg-black/5"
+                />
+                <motion.div
+                  aria-hidden
+                  initial={{ scaleX: 0 }}
+                  whileInView={{ scaleX: 1 }}
+                  transition={{ duration: 1.6, ease: "easeOut", delay: 1.4 }}
                   viewport={{ once: true }}
-                  className="font-pixelify text-brand ring-brand/30 relative z-10 flex h-10 w-10 items-center justify-center rounded-full bg-white text-sm font-bold ring-1"
-                >
-                  {i + 1}
-                </motion.span>
-              </li>
-            ))}
-          </ol>
-        </div>
+                  className="from-brand/60 via-brand/40 to-brand/20 absolute top-1/2 right-12 left-12 h-px origin-left -translate-y-1/2 bg-linear-to-r"
+                />
+                <ol className="relative grid grid-cols-3">
+                  {steps.map((step, i) => (
+                    <li key={step.title} className="flex justify-center">
+                      <motion.span
+                        initial={{ scale: 0.6, opacity: 0 }}
+                        whileInView={{ scale: 1, opacity: 1 }}
+                        transition={{
+                          delay: 1.5 + i * 0.55,
+                          duration: 0.4,
+                          ease: "easeOut",
+                        }}
+                        viewport={{ once: true }}
+                        className="font-pixelify text-brand ring-brand/30 relative z-10 flex h-10 w-10 items-center justify-center rounded-full bg-white text-sm font-bold ring-1"
+                      >
+                        {i + 1}
+                      </motion.span>
+                    </li>
+                  ))}
+                </ol>
+              </div>
 
-        <div className="relative mt-8 grid grid-cols-1 *:border-b *:border-black/5 md:grid-cols-3 [&>*:last-child]:border-b-0 md:[&>*:not(:nth-child(3n))]:border-r md:[&>*:not(:nth-child(3n))]:border-black/5 md:[&>*:nth-last-child(-n+3)]:border-b-0">
-          {steps.map((step) => (
-            <div key={step.title} className="h-full">
-              <div className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-transparent p-5 transition-colors duration-300">
-                <div className="flex-1">
-                  <p className="text-[17px] leading-6 font-semibold text-black/90">
-                    {step.title}
-                  </p>
-                  <p className="mt-2 text-sm leading-6 text-black/55">
-                    {step.description}
-                  </p>
-                </div>
-                <div className="relative mt-5 h-28 shrink-0 overflow-hidden rounded-xl bg-black/[0.02] ring-1 ring-black/5">
-                  <Mock kind={step.mock} />
-                </div>
+              <div className="mt-6 grid w-full max-w-3xl grid-cols-3 *:border-r *:border-black/5 [&>*:last-child]:border-r-0">
+                {steps.map((step, i) => (
+                  <motion.div
+                    key={step.title}
+                    initial={{ opacity: 0, y: 12 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{
+                      delay: 1.7 + i * 0.55,
+                      duration: 0.5,
+                      ease: "easeOut",
+                    }}
+                    viewport={{ once: true }}
+                    className="h-full"
+                  >
+                    <div className="relative flex h-full flex-col p-5">
+                      <div className="flex-1">
+                        <p className="text-[17px] leading-6 font-semibold text-black/90">
+                          {step.title}
+                        </p>
+                        <p className="mt-2 text-sm leading-6 text-black/55">
+                          {step.description}
+                        </p>
+                      </div>
+                      <div className="relative mt-5 h-28 shrink-0 overflow-hidden rounded-xl bg-black/[0.02] ring-1 ring-black/5">
+                        <Mock kind={step.mock} />
+                      </div>
+                    </div>
+                  </motion.div>
+                ))}
               </div>
             </div>
-          ))}
+          </MacbookMockup>
         </div>
       </div>
     </Section>
