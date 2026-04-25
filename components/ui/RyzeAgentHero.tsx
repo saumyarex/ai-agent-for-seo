@@ -120,7 +120,7 @@ export default function RyzeAgentHero() {
                     key={i}
                     className={`group relative flex h-9 w-9 items-center justify-center rounded-lg transition-colors ${
                       active
-                        ? "bg-slate-900 text-white"
+                        ? "bg-brand text-white"
                         : "text-slate-500 hover:bg-slate-900/10 hover:text-slate-900"
                     }`}
                   >
