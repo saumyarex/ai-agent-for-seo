@@ -28,16 +28,22 @@ function LinkedInIcon() {
   );
 }
 
-function GithubIcon() {
+function InstagramIcon() {
   return (
     <svg
       viewBox="0 0 24 24"
       width="16"
       height="16"
-      fill="currentColor"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
       aria-hidden
     >
-      <path d="M12 .5A11.5 11.5 0 0 0 .5 12a11.5 11.5 0 0 0 7.86 10.92c.58.1.79-.25.79-.56v-1.98c-3.2.7-3.88-1.54-3.88-1.54-.52-1.33-1.28-1.69-1.28-1.69-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.55-.3-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.18-3.09-.12-.3-.52-1.48.11-3.09 0 0 .97-.31 3.18 1.18a10.95 10.95 0 0 1 5.8 0c2.21-1.49 3.18-1.18 3.18-1.18.63 1.61.23 2.79.12 3.09.74.81 1.18 1.83 1.18 3.09 0 4.41-2.7 5.37-5.27 5.66.41.36.78 1.06.78 2.13v3.15c0 .31.21.67.8.56A11.5 11.5 0 0 0 23.5 12 11.5 11.5 0 0 0 12 .5Z" />
+      <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+      <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37Z" />
+      <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
     </svg>
   );
 }
@@ -72,7 +78,7 @@ const socials = [
     href: "https://linkedin.com/company/getryze",
     icon: LinkedInIcon,
   },
-  { label: "GitHub", href: "https://github.com", icon: GithubIcon },
+  { label: "Instagram", href: "https://instagram.com", icon: InstagramIcon },
 ];
 
 function Footer() {
@@ -105,8 +111,9 @@ function Footer() {
               <span className="text-lg font-semibold">Ryze</span>
             </a>
             <p className="mt-4 max-w-xs text-sm leading-6 text-black/60">
-              The autonomous SEO system that finds opportunities, creates
-              content, and gets you cited in AI search — automatically.
+              Stop doing SEO manually. Run a system that finds opportunities,
+              executes changes, and grows your traffic while you focus on
+              building.
             </p>
             <div className="mt-6 flex items-center gap-2">
               {socials.map(({ label, href, icon: Icon }) => (
@@ -184,11 +191,11 @@ function Footer() {
 
         <div className="mt-12 flex flex-col items-start justify-between gap-4 border-t border-black/6 pt-6 text-xs text-black/50 sm:flex-row sm:items-center">
           <p>
-            &copy; {year} Ryze AI. Built for founders who&rsquo;d rather ship
-            than audit.
+            &copy; {year} Ryze AI. From dashboards to decisions — SEO that runs
+            itself.
           </p>
           <p className="flex items-center gap-1.5">
-            <span className="bg-brand inline-block h-1.5 w-1.5 rounded-full" />
+            <span className="inline-block h-1.5 w-1.5 rounded-full bg-emerald-400" />
             <span>All systems running</span>
           </p>
         </div>
