@@ -1,6 +1,7 @@
 "use client";
 
-import { motion, useReducedMotion } from "motion/react";
+import { useRef } from "react";
+import { motion, useInView, useReducedMotion } from "motion/react";
 import Section from "../ui/Section";
 import SectionHeading from "../ui/SectionHeading";
 import MacbookMockup from "../ui/MacbookMockup";
@@ -30,8 +31,9 @@ const steps: Step[] = [
   },
 ];
 
-function Mock({ kind }: { kind: Step["mock"] }) {
+function Mock({ kind, play }: { kind: Step["mock"]; play: boolean }) {
   const reduce = useReducedMotion();
+  const animateOn = play && !reduce;
   const frame =
     "relative h-full w-full rounded-lg bg-white ring-1 ring-black/5 overflow-hidden";
 
@@ -57,9 +59,8 @@ function Mock({ kind }: { kind: Step["mock"] }) {
           </div>
           <motion.div
             initial={{ width: 0 }}
-            whileInView={{ width: "100%" }}
-            transition={{ duration: 0.9, ease: "easeOut", delay: 0.2 }}
-            viewport={{ once: true }}
+            animate={animateOn ? { width: "100%" } : { width: 0 }}
+            transition={{ duration: 0.9, ease: "easeOut", delay: 0.7 }}
             className="bg-brand mt-2.5 h-[3px] rounded-full"
           />
           <p className="mt-1.5 text-[10px] text-black/50">Connected</p>
@@ -92,9 +93,8 @@ function Mock({ kind }: { kind: Step["mock"] }) {
             <motion.div
               key={l}
               initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ delay: 0.1 + i * 0.2 }}
-              viewport={{ once: true }}
+              animate={animateOn ? { opacity: 1 } : { opacity: 0 }}
+              transition={{ delay: 0.8 + i * 0.4 }}
               className="flex items-center gap-1.5"
             >
               <span className="bg-brand h-1 w-1 rounded-full" />
@@ -115,31 +115,29 @@ function Mock({ kind }: { kind: Step["mock"] }) {
           </span>
           <motion.span
             initial={{ backgroundColor: "rgba(0,0,0,0.15)" }}
-            whileInView={
-              reduce
-                ? undefined
-                : {
+            animate={
+              animateOn
+                ? {
                     backgroundColor: [
                       "rgba(0,0,0,0.15)",
                       "rgba(0,0,0,0.15)",
                       "rgba(255, 71, 1, 1)",
                     ],
                   }
+                : { backgroundColor: "rgba(0,0,0,0.15)" }
             }
             transition={{
               duration: 0.5,
-              delay: 0.4,
+              delay: 1.6,
               ease: "easeInOut",
               times: [0, 0.9, 1],
             }}
-            viewport={{ once: true }}
             className="relative flex h-4 w-9 items-center rounded-full"
           >
             <motion.span
               initial={{ x: 0 }}
-              whileInView={reduce ? undefined : { x: 20 }}
-              transition={{ duration: 0.5, delay: 0.4, ease: "easeInOut" }}
-              viewport={{ once: true }}
+              animate={animateOn ? { x: 20 } : { x: 0 }}
+              transition={{ duration: 0.5, delay: 1.6, ease: "easeInOut" }}
               className="absolute left-0.5 h-3 w-3 rounded-full bg-white shadow"
             />
           </motion.span>
@@ -158,6 +156,9 @@ function Mock({ kind }: { kind: Step["mock"] }) {
 }
 
 function HowItWorksSection() {
+  const triggerRef = useRef<HTMLDivElement>(null);
+  const inView = useInView(triggerRef, { once: true, amount: 0.3 });
+
   return (
     <Section
       id="how-it-works"
@@ -171,7 +172,10 @@ function HowItWorksSection() {
       <div className="relative mx-auto max-w-5xl">
         <SectionHeading title="Set it up once." titleHighlight="Let it run." />
 
-        <div className="relative mx-auto mt-10 flex max-w-3xl justify-center">
+        <div
+          ref={triggerRef}
+          className="relative mx-auto mt-10 flex max-w-3xl justify-center"
+        >
           <MacbookMockup>
             <div className="flex h-full w-full flex-col items-center justify-center px-10 py-8">
               {/* numbered circles with animated connecting line */}
@@ -183,9 +187,8 @@ function HowItWorksSection() {
                 <motion.div
                   aria-hidden
                   initial={{ scaleX: 0 }}
-                  whileInView={{ scaleX: 1 }}
+                  animate={inView ? { scaleX: 1 } : { scaleX: 0 }}
                   transition={{ duration: 0.9, ease: "easeOut", delay: 0.6 }}
-                  viewport={{ once: true }}
                   className="from-brand/60 via-brand/40 to-brand/20 absolute top-1/2 right-12 left-12 h-px origin-left -translate-y-1/2 bg-linear-to-r"
                 />
                 <ol className="relative grid grid-cols-3">
@@ -193,13 +196,16 @@ function HowItWorksSection() {
                     <li key={step.title} className="flex justify-center">
                       <motion.span
                         initial={{ scale: 0.6, opacity: 0 }}
-                        whileInView={{ scale: 1, opacity: 1 }}
+                        animate={
+                          inView
+                            ? { scale: 1, opacity: 1 }
+                            : { scale: 0.6, opacity: 0 }
+                        }
                         transition={{
                           delay: 0.7 + i * 0.18,
                           duration: 0.3,
                           ease: "easeOut",
                         }}
-                        viewport={{ once: true }}
                         className="font-pixelify text-brand ring-brand/30 relative z-10 flex h-10 w-10 items-center justify-center rounded-full bg-white text-sm font-bold ring-1"
                       >
                         {i + 1}
@@ -214,13 +220,14 @@ function HowItWorksSection() {
                   <motion.div
                     key={step.title}
                     initial={{ opacity: 0, y: 12 }}
-                    whileInView={{ opacity: 1, y: 0 }}
+                    animate={
+                      inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 12 }
+                    }
                     transition={{
                       delay: 0.85 + i * 0.18,
                       duration: 0.4,
                       ease: "easeOut",
                     }}
-                    viewport={{ once: true }}
                     className="h-full"
                   >
                     <div className="relative flex h-full flex-col p-5">
@@ -233,7 +240,7 @@ function HowItWorksSection() {
                         </p>
                       </div>
                       <div className="relative mt-5 h-28 shrink-0 overflow-hidden rounded-xl bg-black/[0.02] ring-1 ring-black/5">
-                        <Mock kind={step.mock} />
+                        <Mock kind={step.mock} play={inView} />
                       </div>
                     </div>
                   </motion.div>
