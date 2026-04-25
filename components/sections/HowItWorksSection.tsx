@@ -185,7 +185,7 @@ function HowItWorksSection() {
                   aria-hidden
                   initial={{ scaleX: 0 }}
                   whileInView={{ scaleX: 1 }}
-                  transition={{ duration: 1.6, ease: "easeOut", delay: 1.4 }}
+                  transition={{ duration: 0.9, ease: "easeOut", delay: 0.6 }}
                   viewport={{ once: true }}
                   className="from-brand/60 via-brand/40 to-brand/20 absolute top-1/2 right-12 left-12 h-px origin-left -translate-y-1/2 bg-linear-to-r"
                 />
@@ -196,8 +196,8 @@ function HowItWorksSection() {
                         initial={{ scale: 0.6, opacity: 0 }}
                         whileInView={{ scale: 1, opacity: 1 }}
                         transition={{
-                          delay: 1.5 + i * 0.55,
-                          duration: 0.4,
+                          delay: 0.7 + i * 0.18,
+                          duration: 0.3,
                           ease: "easeOut",
                         }}
                         viewport={{ once: true }}
@@ -217,8 +217,8 @@ function HowItWorksSection() {
                     initial={{ opacity: 0, y: 12 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{
-                      delay: 1.7 + i * 0.55,
-                      duration: 0.5,
+                      delay: 0.85 + i * 0.18,
+                      duration: 0.4,
                       ease: "easeOut",
                     }}
                     viewport={{ once: true }}
