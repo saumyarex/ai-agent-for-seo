@@ -1,7 +1,7 @@
 "use client";
 
-import React from "react";
-import { motion, useReducedMotion } from "motion/react";
+import React, { useRef } from "react";
+import { motion, useInView, useReducedMotion } from "motion/react";
 import { Infinity as InfinityIcon } from "lucide-react";
 import Section from "../ui/Section";
 import SectionHeading from "../ui/SectionHeading";
@@ -44,7 +44,7 @@ const finale = {
   subtext: "You’re stuck in the cycle of doing SEO, but never seeing SEO work.",
 };
 
-function MiniVisual({ kind }: { kind: Pain["visual"] }) {
+function MiniVisual({ kind, inView }: { kind: Pain["visual"]; inView: boolean }) {
   const common = "absolute inset-0 w-full h-full";
 
   if (kind === "search") {
@@ -99,9 +99,8 @@ function MiniVisual({ kind }: { kind: Pain["visual"] }) {
           height="80"
           fill="url(#fade1)"
           initial={{ x: -160 }}
-          whileInView={{ x: 0 }}
+          animate={inView ? { x: 0 } : { x: -160 }}
           transition={{ duration: 1.1, ease: "easeOut" }}
-          viewport={{ once: true }}
           opacity="0.35"
         />
         <g transform="translate(118,16)">
@@ -134,9 +133,8 @@ function MiniVisual({ kind }: { kind: Pain["visual"] }) {
             fill="var(--brand)"
             opacity={0.25 + (i % 3) * 0.15}
             initial={{ y: 70, height: 0 }}
-            whileInView={{ y: 70 - h, height: h }}
+            animate={inView ? { y: 70 - h, height: h } : { y: 70, height: 0 }}
             transition={{ delay: i * 0.05, duration: 0.5, ease: "easeOut" }}
-            viewport={{ once: true }}
           />
         ))}
         <line
@@ -168,9 +166,8 @@ function MiniVisual({ kind }: { kind: Pain["visual"] }) {
           <React.Fragment key={s}>
             <motion.span
               initial={{ opacity: 0, y: 4 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 4 }}
               transition={{ delay: i * 0.06 }}
-              viewport={{ once: true }}
               className="rounded-md border border-black/10 bg-white px-2 py-0.5 text-[10px] font-medium text-black/60 shadow-[0_1px_0_rgba(0,0,0,0.04)]"
             >
               {s}
@@ -198,9 +195,8 @@ function MiniVisual({ kind }: { kind: Pain["visual"] }) {
         />
         <motion.g
           initial={{ x: 0 }}
-          whileInView={{ x: 110 }}
+          animate={inView ? { x: 110 } : { x: 0 }}
           transition={{ duration: 1.4, ease: "easeOut" }}
-          viewport={{ once: true }}
         >
           <rect
             x="0"
@@ -223,9 +219,8 @@ function MiniVisual({ kind }: { kind: Pain["visual"] }) {
         </motion.g>
         <motion.g
           initial={{ x: 0 }}
-          whileInView={{ x: 30 }}
+          animate={inView ? { x: 30 } : { x: 0 }}
           transition={{ duration: 1.4, ease: "easeOut" }}
-          viewport={{ once: true }}
         >
           <rect
             x="0"
@@ -256,10 +251,12 @@ function MiniVisual({ kind }: { kind: Pain["visual"] }) {
 
 function PainCard({ pain, index }: { pain: Pain; index: number }) {
   const { title, subtext } = pain;
+  const ref = useRef<HTMLDivElement>(null);
+  const inView = useInView(ref, { once: true, amount: 0.3 });
 
   return (
     <div className="h-full">
-      <div className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-transparent p-5 transition-all duration-300 hover:border-black/10 hover:shadow-[0_10px_30px_-12px_rgba(0,0,0,0.08)]">
+      <div ref={ref} className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-transparent p-5 transition-all duration-300 hover:border-black/10 hover:shadow-[0_10px_30px_-12px_rgba(0,0,0,0.08)]">
         <div className="flex-1">
           <div className="flex items-center gap-2">
             <span className="font-pixelify text-brand/70 text-[11px] tracking-widest">
@@ -274,7 +271,7 @@ function PainCard({ pain, index }: { pain: Pain; index: number }) {
         </div>
 
         <div className="relative mt-5 h-20 shrink-0 overflow-hidden rounded-xl bg-black/[0.02] ring-1 ring-black/5">
-          <MiniVisual kind={pain.visual} />
+          <MiniVisual kind={pain.visual} inView={inView} />
         </div>
       </div>
     </div>
