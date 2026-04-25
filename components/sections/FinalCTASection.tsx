@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { ArrowRight } from "lucide-react";
 import { motion, useInView } from "motion/react";
 import Button from "../Button";
+import Reveal from "../ui/Reveal";
 
 type Metric = {
   label: string;
@@ -75,11 +76,9 @@ function LiveResultsStrip() {
 
       <div className="mt-6 grid grid-cols-2 gap-x-6 gap-y-5 sm:grid-cols-3 md:grid-cols-5">
         {metrics.map((m, i) => (
-          <motion.div
+          <Reveal
             key={m.label}
-            initial={{ opacity: 0, y: 8 }}
-            animate={inView ? { opacity: 1, y: 0 } : { opacity: 0 }}
-            transition={{ duration: 0.35, delay: i * 0.06 }}
+            delay={i * 0.06}
             className="flex flex-col items-center text-center"
           >
             <div className="text-2xl font-medium text-neutral-950 tabular-nums sm:text-3xl">
@@ -94,7 +93,7 @@ function LiveResultsStrip() {
             <div className="mt-1 text-xs leading-snug text-black/60">
               {m.label}
             </div>
-          </motion.div>
+          </Reveal>
         ))}
       </div>
 
@@ -131,15 +130,19 @@ function FinalCTASection() {
 
           <div className="mt-14 h-px w-24 bg-black/10" />
 
-          <h2 className="font-pixelify mt-5 text-4xl leading-tight font-medium text-neutral-950 sm:text-5xl md:text-6xl">
-            Stop doing SEO
-            <br />
-            <span className="text-black/45">Start running it</span>
-          </h2>
+          <Reveal>
+            <h2 className="font-pixelify mt-5 text-4xl leading-tight font-medium text-neutral-950 sm:text-5xl md:text-6xl">
+              Stop doing SEO
+              <br />
+              <span className="text-black/45">Start running it</span>
+            </h2>
+          </Reveal>
 
-          <p className="mx-auto mt-5 max-w-lg text-base leading-7 text-black/65">
-            Ryze is live. Join the teams already running SEO on autopilot.
-          </p>
+          <Reveal>
+            <p className="mx-auto mt-5 max-w-lg text-base leading-7 text-black/65">
+              Ryze is live. Join the teams already running SEO on autopilot.
+            </p>
+          </Reveal>
 
           <div className="mt-8 flex flex-col items-center gap-3">
             <Button
