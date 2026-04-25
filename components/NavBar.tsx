@@ -182,10 +182,9 @@ function NavBar() {
 
             <nav className="flex flex-col items-start gap-3 text-base font-medium text-neutral-700">
               {navLinks.map((link, index) => (
-                <motion.a
-                  key={link.href}
-                  href={link.href}
-                  className="transition hover:text-neutral-950"
+                <motion.div
+                  key={link.label}
+                  className="flex flex-col items-start gap-2"
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{
@@ -194,10 +193,29 @@ function NavBar() {
                     damping: 30,
                     delay: index * 0.05,
                   }}
-                  onClick={() => setIsMobileMenuOpen(false)}
                 >
-                  {link.label}
-                </motion.a>
+                  <a
+                    href={link.href}
+                    className="transition hover:text-neutral-950"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    {link.label}
+                  </a>
+                  {link.children && (
+                    <div className="flex flex-col items-start gap-2 pl-4 text-sm text-neutral-600">
+                      {link.children.map((child) => (
+                        <a
+                          key={child.label}
+                          href={child.href}
+                          className="transition hover:text-neutral-950"
+                          onClick={() => setIsMobileMenuOpen(false)}
+                        >
+                          {child.label}
+                        </a>
+                      ))}
+                    </div>
+                  )}
+                </motion.div>
               ))}
 
               <Button
@@ -211,7 +229,7 @@ function NavBar() {
                   type: "spring",
                   stiffness: 300,
                   damping: 30,
-                  delay: navLinks.length * 0.05,
+                  delay: navLinks.length * 0.01,
                 }}
                 onClick={() => {
                   setIsMobileMenuOpen(false);
