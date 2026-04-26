@@ -85,7 +85,7 @@ function NavBar() {
               />
             </motion.div>
             <motion.span
-              className="text-lg font-semibold text-black sm:text-2xl"
+              className="text-lg font-extrabold text-black sm:text-3xl"
               animate={{
                 scale: isScrolled ? 0.92 : 1,
               }}
