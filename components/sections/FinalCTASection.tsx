@@ -148,7 +148,7 @@ function FinalCTASection() {
               title="Start with Ryze"
               rightIcon={ArrowRight}
               isLink
-              href="#start"
+              href="/login"
               variant="primary"
             />
             <p className="text-xs text-black/50">

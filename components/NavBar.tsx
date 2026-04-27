@@ -1,10 +1,11 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, use } from "react";
 import { motion, useScroll, useSpring, AnimatePresence } from "motion/react";
 import { ArrowRight, Menu, X } from "lucide-react";
 import Image from "next/image";
 import Button from "./ui/Button";
+import Link from "next/link";
 
 const navLinks = [
   {
@@ -133,10 +134,19 @@ function NavBar() {
           <motion.div
             animate={{ scale: isScrolled ? 0.92 : 1 }}
             transition={{ type: "spring", stiffness: 200, damping: 15 }}
-            className="relative"
+            className="relative hidden lg:inline-flex"
           >
-            <motion.a
-              href="#generator"
+            <Link href="/login" passHref>
+              <Button
+                title="Start with Ryze"
+                rightIcon={ArrowRight}
+                variant="primary"
+                isLink={true}
+                className="cursor-pointer"
+              />
+            </Link>
+            {/* <motion.a
+              href="/login"
               className="group relative hidden h-10 items-center gap-1 overflow-hidden rounded-lg bg-neutral-950 px-4 text-sm font-medium text-white transition sm:px-5 lg:inline-flex"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
@@ -148,7 +158,7 @@ function NavBar() {
                 size={16}
                 className="relative z-10 transition-all duration-200 group-hover:translate-x-0.5"
               />
-            </motion.a>
+            </motion.a> */}
           </motion.div>
 
           <button
@@ -220,6 +230,8 @@ function NavBar() {
                 title="Start with Ryze"
                 rightIcon={ArrowRight}
                 variant="primary"
+                isLink
+                href="/login"
                 className="mt-4 cursor-pointer"
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
@@ -229,12 +241,7 @@ function NavBar() {
                   damping: 30,
                   delay: navLinks.length * 0.01,
                 }}
-                onClick={() => {
-                  setIsMobileMenuOpen(false);
-                  document
-                    .querySelector("#generator")
-                    ?.scrollIntoView({ behavior: "smooth" });
-                }}
+                onClick={() => setIsMobileMenuOpen(false)}
               />
             </nav>
           </motion.div>

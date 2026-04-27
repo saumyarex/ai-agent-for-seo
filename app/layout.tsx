@@ -80,7 +80,6 @@ export default function RootLayout({
       className={`${inter.variable} ${pixelifySans.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col">
-        <NavBar />
         {children}
         <Analytics />
       </body>
