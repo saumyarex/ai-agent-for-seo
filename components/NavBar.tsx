@@ -67,7 +67,7 @@ function NavBar() {
           <motion.a
             href="#"
             className="flex items-center gap-3"
-            aria-label="AdAgent home"
+            aria-label="Aurio home"
             animate={{ scale: isScrolled ? 0.95 : 1 }}
             transition={{ type: "spring", stiffness: 200, damping: 15 }}
           >
@@ -78,10 +78,10 @@ function NavBar() {
               transition={{ type: "spring", stiffness: 200, damping: 18 }}
             >
               <Image
-                src={"/main-logo-sun-2.png"}
+                src={"/logo.svg"}
                 width={35}
                 height={35}
-                alt="Ryze Logo"
+                alt="Aurio Logo"
               />
             </motion.div>
             <motion.span
@@ -91,7 +91,7 @@ function NavBar() {
               }}
               transition={{ type: "spring", stiffness: 200, damping: 15 }}
             >
-              Ryze
+              Aurio
             </motion.span>
           </motion.a>
 
@@ -143,7 +143,7 @@ function NavBar() {
             >
               <span className="pointer-events-none absolute inset-y-1 -left-10 w-10 rounded-full bg-white/40 opacity-0 blur-md transition-all duration-500 ease-out group-hover:left-[calc(100%+0.5rem)] group-hover:opacity-100" />
               <span className="pointer-events-none absolute inset-0 bg-[linear-gradient(120deg,transparent_0%,rgba(255,255,255,0.02)_38%,rgba(255,255,255,0.09)_50%,rgba(255,255,255,0.02)_62%,transparent_100%)] opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-              <span className="relative z-10">Start with Ryze</span>
+              <span className="relative z-10">Start with Aurio</span>
               <ArrowRight
                 size={16}
                 className="relative z-10 transition-all duration-200 group-hover:translate-x-0.5"
@@ -217,7 +217,7 @@ function NavBar() {
               ))}
 
               <Button
-                title="Start with Ryze"
+                title="Start with Aurio"
                 rightIcon={ArrowRight}
                 variant="primary"
                 className="mt-4 cursor-pointer"

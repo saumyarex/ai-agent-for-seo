@@ -5,7 +5,7 @@ import { motion, useInView, useReducedMotion } from "motion/react";
 
 // Fixed internal design size — content is laid out for this exact box, then
 // the whole mockup is uniformly scaled to fit the viewport (same approach as
-// RyzeAgentHero) so the MacBook looks identical on mobile and desktop.
+// AurioAgentHero) so the MacBook looks identical on mobile and desktop.
 const DESIGN_W = 900;
 const SCREEN_H = Math.round((DESIGN_W * 10) / 16); // 562
 const BASE_H = 18;

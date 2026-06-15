@@ -74,7 +74,7 @@ const sidebarIcons = [
 const DESIGN_W = 960;
 const DESIGN_H = 540;
 
-export default function RyzeAgentHero() {
+export default function AurioAgentHero() {
   const wrapRef = useRef<HTMLDivElement>(null);
   const [scale, setScale] = useState(1);
 
@@ -97,9 +97,9 @@ export default function RyzeAgentHero() {
         style={{ aspectRatio: `${DESIGN_W} / ${DESIGN_H}` }}
       >
         <style>{`
-          .ryze-scroll::-webkit-scrollbar { width: 4px; }
-          .ryze-scroll::-webkit-scrollbar-track { background: transparent; }
-          .ryze-scroll::-webkit-scrollbar-thumb { background: rgba(100,116,139,0.3); border-radius: 99px; }
+          .aurio-scroll::-webkit-scrollbar { width: 4px; }
+          .aurio-scroll::-webkit-scrollbar-track { background: transparent; }
+          .aurio-scroll::-webkit-scrollbar-thumb { background: rgba(100,116,139,0.3); border-radius: 99px; }
         `}</style>
         <div
           className="absolute top-0 left-0"
@@ -135,18 +135,18 @@ export default function RyzeAgentHero() {
               </div>
 
               {/* Main content */}
-              <div className="ryze-scroll flex min-w-0 flex-1 flex-col gap-3 overflow-y-auto p-4">
+              <div className="aurio-scroll flex min-w-0 flex-1 flex-col gap-3 overflow-y-auto p-4">
                 {/* Hero chat window */}
                 <div className="flex flex-col items-center justify-center gap-5 rounded-xl border border-slate-200/70 bg-white/70 px-6 py-10">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
-                    src="/main-logo-sun-2.png"
-                    alt="Ryze"
+                    src="/logo.svg"
+                    alt="Aurio"
                     className="h-14 w-14 object-contain"
                   />
                   <div className="text-center">
                     <h3 className="text-[28px] leading-tight font-semibold tracking-tight text-slate-900">
-                      Ryze AI SEO
+                      Aurio AI SEO
                     </h3>
                     <p className="mt-1 text-[12px] text-slate-500">
                       Ask anything. I&apos;ll audit, plan, and execute across
@@ -160,7 +160,7 @@ export default function RyzeAgentHero() {
                     />
                     <input
                       readOnly
-                      placeholder="Ask Ryze anything about your SEO…"
+                      placeholder="Ask Aurio anything about your SEO…"
                       className="flex-1 bg-transparent text-[12px] text-slate-600 outline-none placeholder:text-slate-400"
                     />
                     <button className="flex h-7 w-7 items-center justify-center rounded-lg bg-slate-900 text-white transition hover:bg-slate-800">

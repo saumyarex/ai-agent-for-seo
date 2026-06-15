@@ -139,13 +139,13 @@ function FinalCTASection() {
 
           <Reveal>
             <p className="mx-auto mt-5 max-w-lg text-base leading-7 text-black/65">
-              Ryze is live. Join the teams already running SEO on autopilot.
+              Aurio is live. Join the teams already running SEO on autopilot.
             </p>
           </Reveal>
 
           <div className="mt-8 flex flex-col items-center gap-3">
             <Button
-              title="Start with Ryze"
+              title="Start with Aurio"
               rightIcon={ArrowRight}
               isLink
               href="#start"

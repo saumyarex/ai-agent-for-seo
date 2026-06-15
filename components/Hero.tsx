@@ -2,7 +2,7 @@
 
 import { ArrowRight, Play, Sparkles, ChevronDown } from "lucide-react";
 import { motion } from "motion/react";
-import RyzeAgentHero from "./ui/RyzeAgentHero";
+import AurioAgentHero from "./ui/AurioAgentHero";
 import Button from "./ui/Button";
 
 const mainContainer = {
@@ -124,7 +124,7 @@ function HeroSection() {
               className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row"
             >
               <Button
-                title="Start with Ryze"
+                title="Start with Aurio"
                 rightIcon={ArrowRight}
                 isLink
                 href="#start"
@@ -145,12 +145,12 @@ function HeroSection() {
             </motion.p>
           </div>
 
-          {/* Ryze agent hero interface */}
+          {/* Aurio agent hero interface */}
           <motion.div
             variants={mainChild}
             className="mt-6 w-full sm:mt-8 lg:mt-12"
           >
-            <RyzeAgentHero />
+            <AurioAgentHero />
           </motion.div>
         </motion.div>
       </div>

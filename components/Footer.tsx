@@ -49,35 +49,32 @@ function InstagramIcon() {
 }
 
 const productLinks = [
-  { label: "AI Marketer", href: "https://www.get-ryze.ai/" },
+  { label: "AI Marketer", href: "#" },
   { label: "AI SEO", href: "#" },
-  {
-    label: "MCP",
-    href: "https://www.get-ryze.ai/how-to-connect-claude-to-google-meta-ads-mcp",
-  },
-  { label: "Agency", href: "https://www.get-ryze.ai/agency" },
+  { label: "MCP", href: "#" },
+  { label: "Agency", href: "#" },
 ];
 
 const companyLinks = [
-  { label: "About", href: "https://www.get-ryze.ai/about" },
-  { label: "Blog", href: "https://www.get-ryze.ai/blog" },
+  { label: "About", href: "#" },
+  { label: "Blog", href: "#" },
   { label: "Careers", href: "#" },
-  { label: "Contact", href: "mailto:ryzeaiteam@gmail.com" },
+  { label: "Contact", href: "mailto:hello@aurio.ai" },
 ];
 
 const legalLinks = [
-  { label: "Privacy Policy", href: "https://www.get-ryze.ai/privacy" },
-  { label: "Terms of Service", href: "https://www.get-ryze.ai/term-services" },
+  { label: "Privacy Policy", href: "#" },
+  { label: "Terms of Service", href: "#" },
 ];
 
 const socials = [
-  { label: "X", href: "https://twitter.com/getryze", icon: XIcon },
+  { label: "X", href: "https://x.com", icon: XIcon },
   {
     label: "LinkedIn",
-    href: "https://www.linkedin.com/company/get-ryze-ai/",
+    href: "https://www.linkedin.com",
     icon: LinkedInIcon,
   },
-  { label: "Instagram", href: "https://instagram.com", icon: InstagramIcon },
+  { label: "Instagram", href: "https://www.instagram.com", icon: InstagramIcon },
 ];
 
 function Footer() {
@@ -97,17 +94,14 @@ function Footer() {
         <div className="grid gap-12 lg:grid-cols-[1.4fr_1fr_1fr_1fr]">
           {/* Brand */}
           <div>
-            <a
-              href="https://www.get-ryze.ai/"
-              className="flex items-center gap-2"
-            >
+            <a href="#" className="flex items-center gap-2">
               <Image
-                src="/main-logo-sun-2.png"
+                src="/logo.svg"
                 width={28}
                 height={28}
-                alt="Ryze"
+                alt="Aurio"
               />
-              <span className="text-lg font-semibold">Ryze</span>
+              <span className="text-lg font-semibold">Aurio</span>
             </a>
             <p className="mt-4 max-w-xs text-sm leading-6 text-black/60">
               Stop doing SEO manually. Run a system that finds opportunities,
@@ -190,7 +184,7 @@ function Footer() {
 
         <div className="mt-12 flex flex-col items-start justify-between gap-4 border-t border-black/6 pt-6 text-xs text-black/50 sm:flex-row sm:items-center">
           <p>
-            &copy; {year} Ryze AI. From dashboards to decisions — SEO that runs
+            &copy; {year} Aurio AI. From dashboards to decisions — SEO that runs
             itself.
           </p>
           <p className="flex items-center gap-1.5">

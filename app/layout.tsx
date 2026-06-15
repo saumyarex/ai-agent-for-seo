@@ -18,11 +18,11 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL("https://ai-agent-for-seo.vercel.app"),
   title: {
-    default: "AI Agent for SEO | Ryze AI",
-    template: "%s | Ryze AI",
+    default: "AI Agent for SEO | Aurio AI",
+    template: "%s | Aurio AI",
   },
   description:
-    "Ryze is the AI agent for SEO that finds ranking opportunities, builds content plans, flags technical blockers, and gives your team the clearest next step to win more qualified traffic.",
+    "Aurio is the AI agent for SEO that finds ranking opportunities, builds content plans, flags technical blockers, and gives your team the clearest next step to win more qualified traffic.",
   robots: {
     index: true,
     follow: true,
@@ -38,11 +38,11 @@ export const metadata: Metadata = {
     "Next steps for SEO",
   ],
   openGraph: {
-    title: "AI Agent for SEO | Ryze AI",
+    title: "AI Agent for SEO | Aurio AI",
     description:
-      "Ryze is the AI agent for SEO that finds ranking opportunities, builds content plans, flags technical blockers, and gives your team the clearest next step to win more qualified traffic.",
+      "Aurio is the AI agent for SEO that finds ranking opportunities, builds content plans, flags technical blockers, and gives your team the clearest next step to win more qualified traffic.",
     url: "https://ai-agent-for-seo.vercel.app",
-    siteName: "Ryze AI",
+    siteName: "Aurio AI",
     images: [
       {
         url: "/hero.webp",
@@ -55,9 +55,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "AI Agent for SEO | Ryze AI",
+    title: "AI Agent for SEO | Aurio AI",
     description:
-      "Ryze is the AI agent for SEO that finds ranking opportunities, builds content plans, flags technical blockers, and gives your team the clearest next step to win more qualified traffic.",
+      "Aurio is the AI agent for SEO that finds ranking opportunities, builds content plans, flags technical blockers, and gives your team the clearest next step to win more qualified traffic.",
     images: ["/hero.webp"],
   },
   icons: {
