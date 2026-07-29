@@ -182,7 +182,28 @@ function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 flex flex-col items-start justify-between gap-4 border-t border-black/6 pt-6 text-xs text-black/50 sm:flex-row sm:items-center">
+        {/* Designer note */}
+        <div className="mt-12 rounded-xl border border-black/6 bg-white/60 px-5 py-4 sm:px-6 sm:py-5">
+          <h4 className="text-[10px] font-semibold tracking-wider text-black/40 uppercase">
+            A note from the designer
+          </h4>
+          <p className="mt-2 max-w-2xl text-sm leading-6 text-black/60">
+            This site was designed and built by Saumya — a design engineer who
+            builds interfaces end to end, from the first frame to the shipped
+            code. If you want something like this for your product,{" "}
+            <a
+              href="https://studio.saumyarex.xyz/"
+              target="_blank"
+              rel="noreferrer"
+              className="hover:decoration-brand/60 hover:text-brand text-neutral-900 underline decoration-black/20 underline-offset-4 transition-colors duration-200"
+            >
+              get in touch at studio.saumyarex.xyz
+            </a>
+            .
+          </p>
+        </div>
+
+        <div className="mt-8 flex flex-col items-start justify-between gap-4 border-t border-black/6 pt-6 text-xs text-black/50 sm:flex-row sm:items-center">
           <p>
             &copy; {year} Aurio AI. From dashboards to decisions — SEO that runs
             itself.
