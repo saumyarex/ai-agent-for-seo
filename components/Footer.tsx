@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { ArrowUpRight } from "lucide-react";
 
 function XIcon() {
   return (
@@ -183,24 +184,41 @@ function Footer() {
         </div>
 
         {/* Designer note */}
-        <div className="mt-12 rounded-xl border border-black/6 bg-white/60 px-5 py-4 sm:px-6 sm:py-5">
-          <h4 className="text-[10px] font-semibold tracking-wider text-black/40 uppercase">
-            A note from the designer
-          </h4>
-          <p className="mt-2 max-w-2xl text-sm leading-6 text-black/60">
-            This site was designed and built by Saumya — a design engineer who
-            builds interfaces end to end, from the first frame to the shipped
-            code. If you want something like this for your product,{" "}
+        <div className="border-brand/20 relative mt-12 overflow-hidden rounded-2xl border bg-white/80 p-6 sm:p-7">
+          <div
+            className="pointer-events-none absolute inset-0 opacity-70"
+            style={{
+              background:
+                "radial-gradient(120% 140% at 100% 0%, rgb(var(--brand-rgb)/0.10) 0%, transparent 60%)",
+            }}
+          />
+          <div className="relative flex flex-col gap-6 md:flex-row md:items-center md:justify-between md:gap-10">
+            <div>
+              <h4 className="flex items-center gap-2 text-[10px] font-semibold tracking-wider text-black/40 uppercase">
+                <span className="bg-brand inline-block h-1.5 w-1.5 rounded-full" />
+                A note from the designer
+              </h4>
+              <p className="mt-3 max-w-lg text-sm leading-6 text-black/60">
+                This site was designed and built by Saumya — a design engineer
+                who builds interfaces end to end, from the first frame to the
+                shipped code. If you want something like this for your product,
+                let&apos;s talk.
+              </p>
+            </div>
+
             <a
               href="https://studio.saumyarex.xyz/"
               target="_blank"
               rel="noreferrer"
-              className="hover:decoration-brand/60 hover:text-brand text-neutral-900 underline decoration-black/20 underline-offset-4 transition-colors duration-200"
+              className="group bg-brand shadow-brand/25 hover:shadow-brand/40 inline-flex h-12 shrink-0 items-center justify-center gap-2 self-start rounded-xl px-6 text-sm font-semibold text-white shadow-lg transition-all duration-200 hover:-translate-y-0.5 md:self-auto"
             >
-              get in touch at studio.saumyarex.xyz
+              Work with me
+              <ArrowUpRight
+                size={16}
+                className="transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+              />
             </a>
-            .
-          </p>
+          </div>
         </div>
 
         <div className="mt-8 flex flex-col items-start justify-between gap-4 border-t border-black/6 pt-6 text-xs text-black/50 sm:flex-row sm:items-center">
