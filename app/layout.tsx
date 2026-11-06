@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Pixelify_Sans } from "next/font/google";
 import "./globals.css";
 import NavBar from "@/components/NavBar";
+import ConceptNotice from "@/components/ConceptNotice";
 import { Analytics } from "@vercel/analytics/next";
 
 const pixelifySans = Pixelify_Sans({
@@ -23,6 +24,8 @@ export const metadata: Metadata = {
   },
   description:
     "Aurio is the AI agent for SEO that finds ranking opportunities, builds content plans, flags technical blockers, and gives your team the clearest next step to win more qualified traffic.",
+  authors: [{ name: "Saumya", url: "https://saumyarex.xyz" }],
+  creator: "Saumya",
   robots: {
     index: true,
     follow: true,
@@ -82,6 +85,7 @@ export default function RootLayout({
       <body className="flex min-h-full flex-col">
         <NavBar />
         {children}
+        <ConceptNotice />
         <Analytics />
       </body>
     </html>

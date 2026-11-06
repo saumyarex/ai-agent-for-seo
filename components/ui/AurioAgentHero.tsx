@@ -163,7 +163,11 @@ export default function AurioAgentHero() {
                       placeholder="Ask Aurio anything about your SEO…"
                       className="flex-1 bg-transparent text-[12px] text-slate-600 outline-none placeholder:text-slate-400"
                     />
-                    <button className="flex h-7 w-7 items-center justify-center rounded-lg bg-slate-900 text-white transition hover:bg-slate-800">
+                    <button
+                      data-concept-cta
+                      aria-label="Send"
+                      className="flex h-7 w-7 items-center justify-center rounded-lg bg-slate-900 text-white transition hover:bg-slate-800"
+                    >
                       <span className="text-[12px]">↑</span>
                     </button>
                   </div>

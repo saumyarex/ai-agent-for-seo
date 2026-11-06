@@ -1,5 +1,6 @@
 import Image from "next/image";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Globe } from "lucide-react";
+import { PORTFOLIO_URL } from "./ConceptNotice";
 
 function XIcon() {
   return (
@@ -15,40 +16,6 @@ function XIcon() {
   );
 }
 
-function LinkedInIcon() {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      width="16"
-      height="16"
-      fill="currentColor"
-      aria-hidden
-    >
-      <path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.05-1.86-3.05-1.86 0-2.15 1.45-2.15 2.95v5.67H9.32V9h3.41v1.56h.05c.47-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13ZM7.12 20.45H3.56V9h3.56v11.45ZM22.23 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.46c.98 0 1.77-.77 1.77-1.72V1.72C24 .77 23.21 0 22.23 0Z" />
-    </svg>
-  );
-}
-
-function InstagramIcon() {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      width="16"
-      height="16"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden
-    >
-      <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
-      <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37Z" />
-      <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
-    </svg>
-  );
-}
-
 const productLinks = [
   { label: "AI Marketer", href: "#" },
   { label: "AI SEO", href: "#" },
@@ -60,7 +27,6 @@ const companyLinks = [
   { label: "About", href: "#" },
   { label: "Blog", href: "#" },
   { label: "Careers", href: "#" },
-  { label: "Contact", href: "mailto:hello@aurio.ai" },
 ];
 
 const legalLinks = [
@@ -69,13 +35,12 @@ const legalLinks = [
 ];
 
 const socials = [
-  { label: "X", href: "https://x.com", icon: XIcon },
+  { label: "Saumya on X", href: "https://x.com/saumyarex", icon: XIcon },
   {
-    label: "LinkedIn",
-    href: "https://www.linkedin.com",
-    icon: LinkedInIcon,
+    label: "Saumya's portfolio",
+    href: PORTFOLIO_URL,
+    icon: () => <Globe size={16} aria-hidden />,
   },
-  { label: "Instagram", href: "https://www.instagram.com", icon: InstagramIcon },
 ];
 
 function Footer() {
@@ -96,12 +61,7 @@ function Footer() {
           {/* Brand */}
           <div>
             <a href="#" className="flex items-center gap-2">
-              <Image
-                src="/logo.svg"
-                width={28}
-                height={28}
-                alt="Aurio"
-              />
+              <Image src="/logo.svg" width={28} height={28} alt="Aurio" />
               <span className="text-lg font-semibold">Aurio</span>
             </a>
             <p className="mt-4 max-w-xs text-sm leading-6 text-black/60">
@@ -185,8 +145,19 @@ function Footer() {
 
         <div className="mt-8 flex flex-col items-start justify-between gap-4 border-t border-black/6 pt-6 text-xs text-black/50 sm:flex-row sm:items-center">
           <p>
-            &copy; {year} Aurio AI. From dashboards to decisions — SEO that runs
-            itself.
+            &copy; {year} · Aurio is a concept product. Designed &amp; built by{" "}
+            <a
+              href={PORTFOLIO_URL}
+              target="_blank"
+              rel="noopener"
+              className="group inline-flex items-center gap-0.5 font-medium text-neutral-900 underline decoration-black/20 underline-offset-2 transition-colors hover:decoration-black/60"
+            >
+              Saumya
+              <ArrowUpRight
+                size={12}
+                className="transition-transform duration-200 group-hover:translate-x-px group-hover:-translate-y-px"
+              />
+            </a>
           </p>
           <p className="flex items-center gap-1.5">
             <span className="inline-block h-1.5 w-1.5 rounded-full bg-emerald-400" />

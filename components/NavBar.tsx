@@ -5,6 +5,7 @@ import { motion, useScroll, useSpring, AnimatePresence } from "motion/react";
 import { ArrowRight, Menu, X } from "lucide-react";
 import Image from "next/image";
 import Button from "./ui/Button";
+import { openConceptNotice } from "./ConceptNotice";
 
 const navLinks = [
   {
@@ -136,7 +137,7 @@ function NavBar() {
             className="relative"
           >
             <motion.a
-              href="#generator"
+              href="#start"
               className="group relative hidden h-10 items-center gap-1 overflow-hidden rounded-lg bg-neutral-950 px-4 text-sm font-medium text-white transition sm:px-5 lg:inline-flex"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
@@ -231,9 +232,7 @@ function NavBar() {
                 }}
                 onClick={() => {
                   setIsMobileMenuOpen(false);
-                  document
-                    .querySelector("#generator")
-                    ?.scrollIntoView({ behavior: "smooth" });
+                  openConceptNotice();
                 }}
               />
             </nav>
